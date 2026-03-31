@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Divine Arts & Sculptures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #3E2A23, #B55A30);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .about-content {
+            padding: 80px 0;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        .about-text h2 {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            color: #3E2A23;
+        }
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        .value-card {
+            text-align: center;
+            padding: 40px 24px;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .value-card i {
+            font-size: 2.5rem;
+            color: var(--copper);
+            margin-bottom: 20px;
+        }
+        .value-card h3 {
+            margin-bottom: 12px;
+        }
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🕉️</span>
+                <div><h1>Divine Arts & Sculptures</h1><p>Pancha Loha | Traditional Chola Bronze</p></div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="how-its-made.html">How it's made</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html" class="active">About</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ta">த</button>
+                    <button class="lang-btn" data-lang="te">తె</button>
+                    <button class="lang-btn" data-lang="hi">हि</button>
+                </div>
+                <a href="https://wa.me/918971789029" class="whatsapp-nav" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <div class="container">
+            <h1>Our Story</h1>
+            <p>Preserving a 4500-year-old tradition of sacred metal craftsmanship</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Divine Arts & Sculptures</h2>
+                    <p>We are a family of traditional bronze sculptors carrying forward the legacy of the Chola dynasty. For generations, we have been creating sacred Pancha Loha idols using the ancient lost-wax casting process that dates back over 4500 years.</p>
+                    <p>Our workshop is a place where devotion meets artistry. Every idol we create is made according to the Silpa Shastra guidelines, ensuring that each piece carries the correct proportions, mudras, and spiritual energy. We serve temples, home puja spaces, and collectors who appreciate authentic traditional craftsmanship.</p>
+                    <p><strong>In-house customized services include:</strong> bronze sculptors, bronze portraiture bust sculptors, marble statue production artisans, silicone mold makers, casting and foundry artisans — all under one roof!</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg" alt="Our Workshop">
+                </div>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>4500 Years Heritage</h3>
+                    <p>Traditional wax process since Chola dynasty</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-hand-sparkles"></i>
+                    <h3>100% Handcrafted</h3>
+                    <p>Each idol sculpted by master artisans</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Pancha Loha Metal</h3>
+                    <p>Sacred five-metal alloy for spiritual energy</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-temple"></i>
+                    <h3>Temple Quality</h3>
+                    <p>Made according to Silpa Shastra standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div><h3>Divine Arts & Sculptures</h3><p>Handcrafted Pancha Loha idols using traditional Chola wax casting process.</p></div>
+                <div><h4>Contact</h4><p><i class="fas fa-phone"></i> +91 89717 89029</p><p><i class="fas fa-envelope"></i> divineartsandsculptures@gmail.com</p></div>
+            </div>
+            <div class="footer-bottom"><p>© 2024 Divine Arts & Sculptures. All rights reserved.</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Divine Arts & Sculptures | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #FDF8F0;
+            color: #2E241F;
+            line-height: 1.6;
+        }
+
+        :root {
+            --copper: #B55A30;
+            --copper-dark: #8B3E1F;
+            --clay: #C77E4A;
+            --sand: #EADBCE;
+            --deep-umber: #3E2A23;
+            --golden: #D9A13B;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(253, 248, 240, 0.98);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #EAD3BF;
+            padding: 16px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--copper-dark);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            color: #7A5A48;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4E3629;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--copper);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            background: #F2E5DA;
+            padding: 4px 12px;
+            border-radius: 40px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .lang-btn.active {
+            background: var(--copper);
+            color: white;
+        }
+
+        .whatsapp-nav {
+            background: #25D366;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            background: var(--golden);
+            color: #3E2A23;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .btn-primary, .btn-secondary, .btn-outline {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            margin-right: 12px;
+        }
+
+        .btn-primary {
+            background: var(--copper);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--copper-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--copper);
+        }
+
+        .btn-secondary {
+            background: var(--copper);
+            color: white;
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+        }
+
+        /* Welcome Section */
+        .welcome {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .welcome-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .section-tag {
+            color: var(--copper);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+        }
+
+        .welcome-text h2 {
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            margin: 16px 0 24px;
+            color: #3E2A23;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .feature i {
+            color: var(--copper);
+        }
+
+        .welcome-image img {
+            width: 100%;
+            border-radius: 32px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Trending */
+        .trending, .categories, .stats {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            margin: 12px 0;
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .size {
+            color: #7A5A48;
+            font-size: 0.85rem;
+            margin: 6px 0;
+        }
+
+        .price {
+            color: var(--copper);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .whatsapp-btn-small {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25D36610;
+            padding: 6px 16px;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #1F8B4C;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .text-center {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* Categories */
+        .categories {
+            background: #FFF9F3;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: white;
+            padding: 40px 24px;
+            text-align: center;
+            border-radius: 32px;
+            transition: 0.2s;
+            border: 1px solid #F0E0D2;
+        }
+
+        .category-card i {
+            font-size: 2.5rem;
+            color: var(--copper);
+            margin-bottom: 16px;
+        }
+
+        .category-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+        }
+
+        /* Stats */
+        .stats {
+            background: var(--copper);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            gap: 30px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #2E241F;
+            color: #EADBCE;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-grid h3, .footer-grid h4 {
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-grid ul {
+            list-style: none;
+        }
+
+        .footer-grid ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-grid a {
+            color: #EADBCE;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-grid a:hover {
+            color: var(--copper);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.2s, color 0.2s;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--copper);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #4E3629;
+            font-size: 0.85rem;
+        }
+
+        /* Pricing Table */
+        .pricing-preview {
+            padding: 60px 0;
+            background: #F3EAE1;
+        }
+
+        .pricing-table {
+            background: white;
+            border-radius: 32px;
+            overflow-x: auto;
+            padding: 20px;
+        }
+
+        .pricing-table table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .pricing-table th {
+            background: var(--copper);
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .pricing-table td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #F0E0D2;
+        }
+
+        .pricing-table tr:hover {
+            background: #FDF8F0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .welcome-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .logo img {
+                height: 45px;
+            }
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+            .video-container iframe {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Divine Arts & Sculptures Logo" onerror="this.style.display='none';">
+                <div class="logo-text">
+                    <h1>Divine Arts & Sculptures</h1>
+                    <p>Pancha Loha | Traditional Chola Bronze</p>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="how-its-made.html">How it's made</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ta">த</button>
+                    <button class="lang-btn" data-lang="te">తె</button>
+                    <button class="lang-btn" data-lang="hi">हि</button>
+                </div>
+                <a href="https://wa.me/918971789029" class="whatsapp-nav" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">4500 Years of Heritage</span>
+                <h1>Sacred Pancha Loha <br>Idols Since Chola Era</h1>
+                <p>Handcrafted using the ancient lost-wax casting process — each idol carries centuries of devotion, art, and the sacred blend of five metals.</p>
+                <div class="hero-buttons">
+                    <a href="gallery.html" class="btn-primary">Explore Gallery <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://wa.me/918971789029" class="btn-outline">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="container">
+            <div class="welcome-grid">
+                <div class="welcome-text">
+                    <span class="section-tag">Welcome to Divine Arts</span>
+                    <h2>Traditional Bronze Icons for Temples & Homes</h2>
+                    <p>We manufacture all types of bronze icons according to Silpa Shastra for Temples, Home Puja & Fancy Icons for Drawing Room, Reception Hall & Business Premises. We use the same hereditary process as back as 4500 years old since Chola king period called <strong>WAX PROCESS</strong>.</p>
+                    <div class="features-list">
+                        <div class="feature"><i class="fas fa-check-circle"></i> Bronze Sculptors & Portraiture Busts</div>
+                        <div class="feature"><i class="fas fa-check-circle"></i> Marble Statue Production</div>
+                        <div class="feature"><i class="fas fa-check-circle"></i> Silicone Mold Making & Casting</div>
+                        <div class="feature"><i class="fas fa-check-circle"></i> Panchaloha Statues & Kavasams</div>
+                        <div class="feature"><i class="fas fa-check-circle"></i> Creative Lamps in Brass & Silver</div>
+                    </div>
+                </div>
+                <div class="welcome-image">
+                    <img src="https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg" alt="Divine Idol">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section - YouTube Shorts -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Watch Our Craftsmanship</span>
+                <h2>The Ancient Wax Process</h2>
+                <p>See how traditional Chola bronze idols come to life</p>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/BTPIaIKc-VU" title="Divine Arts & Sculptures - Wax Process" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Products -->
+    <section class="trending">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Best Sellers</span>
+                <h2>Trending This Month</h2>
+                <p>Most loved by our customers — handcrafted with devotion</p>
+            </div>
+            <div class="trending-grid" id="trendingGrid">
+                <div style="text-align:center; grid-column:1/-1; padding:40px;">Loading divine collection...</div>
+            </div>
+            <div class="text-center">
+                <a href="gallery.html" class="btn-secondary">View All Products <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Preview -->
+    <section class="pricing-preview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Price Guide</span>
+                <h2>Standard Idol Pricing</h2>
+                <p>Based on size, posture, and number of hands</p>
+            </div>
+            <div class="pricing-table">
+                <tr>
+                    <thead>
+                        <tr><th>Type</th><th>12 inch</th><th>15 inch</th><th>18 inch</th><th>21 inch</th><th>24 inch</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Standing - 4 Hands</strong></td><td>₹35,000</td><td>₹48,000</td><td>₹70,000</td><td>₹1,00,000</td><td>₹1,40,000</td></tr>
+                        <tr><td><strong>Standing - 8 Hands</strong></td><td>₹40,000</td><td>₹58,000</td><td>₹80,000</td><td>₹1,30,000</td><td>₹1,60,000</td></tr>
+                        <tr><td><strong>Sitting - 4 Hands</strong></td><td>₹52,000</td><td>₹75,000</td><td>₹1,40,000</td><td>₹2,20,000</td><td>₹3,20,000</td></tr>
+                        <tr><td><strong>Sitting - 8 Hands</strong></td><td>₹65,000</td><td>₹90,000</td><td>₹1,60,000</td><td>₹2,50,000</td><td>₹3,60,000</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="text-center" style="margin-top: 30px;">
+                <p style="color: #7A5A48;"><i class="fas fa-info-circle"></i> Special idols and sets have custom pricing. Contact us for details.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Expertise</span>
+                <h2>What We Create</h2>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <i class="fas fa-om"></i>
+                    <h3>Bronze/Panchaloha</h3>
+                    <p>Sacred five-metal alloy idols</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-mountain"></i>
+                    <h3>Stone Sculptures</h3>
+                    <p>Granite, marble, and soapstone</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-tree"></i>
+                    <h3>Wooden Arts</h3>
+                    <p>Traditional teak and sandalwood</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Creative Lamps</h3>
+                    <p>Brass & Silver traditional lamps</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat">
+                <span class="stat-number">4500+</span>
+                <span class="stat-label">Years of Heritage</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Idols Created</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">1000+</span>
+                <span class="stat-label">Happy Customers</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Temple Projects</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Divine Arts & Sculptures</h3>
+                    <p>Handcrafted Pancha Loha idols using traditional Chola wax casting process since generations.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/people/Divine-Arts-and-sculptures/100082282862776/" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/divine_arts_and_sculptures/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/shorts/BTPIaIKc-VU" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="reviews.html">Reviews</a></li>
+                        <li><a href="how-its-made.html">How It's Made</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +91 89717 89029</p>
+                    <p><i class="fas fa-envelope"></i> divineartsandsculptures@gmail.com</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +91 89717 89029</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Divine Arts & Sculptures. All rights reserved. Crafted with devotion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Complete catalog with new pricing structure
+        const deitiesList = [
+            "Lakshmi", "Mahalakshmi", "Lalitha Tripura Sundari", "Raja Rajeshwari", 
+            "Ganapati", "Saraswati", "Durga", "Varahi", "Pratyangara Devi", 
+            "Vishnu", "Balaji", "Venkateshwara", "Murugan", "Subramanya", 
+            "Ayyappa", "Hanuman", "Bhuvaneshwari", "Annapurneshwari", 
+            "Matangi", "Marriamma", "Karumari Amman", "Krishna", "Parvati", 
+            "Nataraja", "Dattatreya", "Kamakshi", "Shiva"
+        ];
+
+        const pricing = {
+            "Standing - 4 Hands": {12:35000, 15:48000, 18:70000, 21:100000, 24:140000},
+            "Standing - 8 Hands": {12:40000, 15:58000, 18:80000, 21:130000, 24:160000},
+            "Sitting - 4 Hands": {12:52000, 15:75000, 18:140000, 21:220000, 24:320000},
+            "Sitting - 8 Hands": {12:65000, 15:90000, 18:160000, 21:250000, 24:360000}
+        };
+
+        function getDeityImage(deity) {
+            const imageMap = {
+                "Lakshmi": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg",
+                "Ganapati": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690781710957/home/ganesha.jpg",
+                "Murugan": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782354263/home/murugan.jpg",
+                "Shiva": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782624573/home/nataraja.jpg",
+                "Krishna": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782825482/home/krishna.jpg",
+                "Rama": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783034771/home/ram.jpg",
+                "Durga": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783345201/home/durga.jpg",
+                "Vishnu": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784205175/home/vishnu.jpg",
+                "Saraswati": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784402410/home/saraswati.jpg"
+            };
+            return imageMap[deity] || "https://placehold.co/400x400?text=Divine+Idol";
+        }
+
+        // Generate trending products (12 inch Standing 4 Hands for top deities)
+        const trendingProducts = [
+            {name: "Lakshmi Devi", size: "12 inch", type: "Standing - 4 Hands", price: 35000, deity: "Lakshmi"},
+            {name: "Ganapati", size: "12 inch", type: "Standing - 4 Hands", price: 35000, deity: "Ganapati"},
+            {name: "Shiva Nataraja", size: "12 inch", type: "Standing - 4 Hands", price: 35000, deity: "Shiva"},
+            {name: "Durga Devi", size: "12 inch", type: "Standing - 8 Hands", price: 40000, deity: "Durga"},
+            {name: "Murugan", size: "12 inch", type: "Standing - 4 Hands", price: 35000, deity: "Murugan"},
+            {name: "Krishna", size: "12 inch", type: "Standing - 4 Hands", price: 35000, deity: "Krishna"}
+        ];
+
+        const grid = document.getElementById('trendingGrid');
+        grid.innerHTML = trendingProducts.map(item => `
+            <div class="product-card" onclick="window.location.href='shop.html'">
+                <img src="${getDeityImage(item.deity)}" alt="${item.name}" onerror="this.src='https://placehold.co/300x300?text=Divine+Idol'">
+                <div class="product-info">
+                    <h3>${item.name}</h3>
+                    <p class="size">${item.size} | ${item.type}</p>
+                    <p class="price">₹${item.price.toLocaleString('en-IN')}</p>
+                    <a href="https://wa.me/918971789029?text=Hi! I'm interested in ${item.name} (${item.size}) - ${item.type}" class="whatsapp-btn-small" target="_blank"><i class="fab fa-whatsapp"></i> Enquire</a>
+                </div>
+            </div>
+        `).join('');
+
+        // Mobile menu
+        document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
+            const navLinks = document.querySelector('.nav-links');
+            const navActions = document.querySelector('.nav-actions');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+                if (navActions) navActions.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.width = '100%';
+                if (navActions) {
+                    navActions.style.display = 'flex';
+                    navActions.style.width = '100%';
+                }
+            }
+        });
+
+        // Language switcher
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

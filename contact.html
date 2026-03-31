@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Divine Arts & Sculptures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-header {
+            background: linear-gradient(135deg, #3E2A23, #B55A30);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin: 80px 0;
+        }
+        .contact-info {
+            background: white;
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #3E2A23;
+        }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #FDF8F0;
+            border-radius: 24px;
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--copper);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        .contact-detail h4 {
+            margin-bottom: 5px;
+        }
+        .contact-form {
+            background: white;
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #E6D2C2;
+            border-radius: 40px;
+            font-family: 'Inter', sans-serif;
+        }
+        .form-group textarea {
+            border-radius: 24px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background: var(--copper);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        .map-placeholder {
+            background: #F3EAE1;
+            border-radius: 32px;
+            padding: 60px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 100;
+            transition: 0.2s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🕉️</span>
+                <div><h1>Divine Arts & Sculptures</h1><p>Pancha Loha | Traditional Chola Bronze</p></div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="how-its-made.html">How it's made</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ta">த</button>
+                    <button class="lang-btn" data-lang="te">తె</button>
+                    <button class="lang-btn" data-lang="hi">हि</button>
+                </div>
+                <a href="https://wa.me/918971789029" class="whatsapp-nav" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact-header">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>We're here to help you find the perfect divine idol for your home or temple</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3><i class="fas fa-heart" style="color: var(--copper);"></i> Connect With Us</h3>
+                <div class="contact-detail">
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                        <h4>Phone / WhatsApp</h4>
+                        <p>+91 89717 89029</p>
+                        <small>Call or message anytime</small>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>divineartsandsculptures@gmail.com</p>
+                        <small>We respond within 24 hours</small>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                    <div>
+                        <h4>WhatsApp Business</h4>
+                        <p>+91 89717 89029</p>
+                        <small>Share photos of what you're looking for!</small>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                    <div>
+                        <h4>Business Hours</h4>
+                        <p>Monday - Saturday: 10:00 AM - 7:00 PM</p>
+                        <p>Sunday: By appointment only</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send an Enquiry</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <select id="inquiryType">
+                            <option value="">Select Inquiry Type</option>
+                            <option value="Idol Purchase">Idol Purchase</option>
+                            <option value="Custom Order">Custom Order</option>
+                            <option value="Temple Project">Temple Project</option>
+                            <option value="Wholesale">Wholesale Inquiry</option>
+                            <option value="General">General Question</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="4" placeholder="Tell us what you're looking for... (Idol name, size, quantity, etc.)" id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="map-placeholder">
+            <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: var(--copper); margin-bottom: 20px;"></i>
+            <h3>Visit Our Workshop</h3>
+            <p>We welcome visitors by appointment. Contact us to schedule a visit and see our collection in person.</p>
+            <p style="margin-top: 20px;"><strong>📍 Based in Tamil Nadu, India</strong><br>Shipping available worldwide</p>
+        </div>
+    </div>
+
+    <a href="https://wa.me/918971789029" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div><h3>Divine Arts & Sculptures</h3><p>Handcrafted Pancha Loha idols using traditional Chola wax casting process.</p></div>
+                <div><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="shop.html">Shop</a></li></ul></div>
+                <div><h4>Contact</h4><p><i class="fas fa-phone"></i> +91 89717 89029</p><p><i class="fas fa-envelope"></i> divineartsandsculptures@gmail.com</p></div>
+            </div>
+            <div class="footer-bottom"><p>© 2024 Divine Arts & Sculptures. All rights reserved. Crafted with devotion.</p></div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const inquiryType = document.getElementById('inquiryType').value;
+            const message = document.getElementById('message').value;
+            
+            let waMessage = `Hi Divine Arts & Sculptures!%0A%0A`;
+            waMessage += `📝 New Inquiry from Website:%0A`;
+            waMessage += `Name: ${name}%0A`;
+            waMessage += `Email: ${email}%0A`;
+            waMessage += `Phone: ${phone || 'Not provided'}%0A`;
+            waMessage += `Inquiry Type: ${inquiryType || 'General'}%0A%0A`;
+            waMessage += `📋 Message:%0A${message}%0A%0A`;
+            waMessage += `Please get back to me with details. Thank you!`;
+            
+            window.open(`https://wa.me/918971789029?text=${waMessage}`, '_blank');
+        });
+    </script>
+</body>
+</html>

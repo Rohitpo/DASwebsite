@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Divine Arts & Sculptures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FDF8F0; color: #2E241F; }
+        :root { --copper: #B55A30; --copper-dark: #8B3E1F; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 24px; }
+        .navbar {
+            background: rgba(253, 248, 240, 0.98);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #EAD3BF;
+            padding: 16px 0;
+        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .logo { display: flex; align-items: center; gap: 15px; }
+        .logo img { height: 55px; width: auto; object-fit: contain; }
+        .logo-text h1 { font-size: 1.3rem; font-weight: 700; color: var(--copper-dark); font-family: 'Playfair Display', serif; }
+        .logo-text p { font-size: 0.7rem; color: #7A5A48; }
+        .nav-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; color: #4E3629; font-weight: 500; }
+        .nav-links a:hover, .nav-links a.active { color: var(--copper); }
+        .nav-actions { display: flex; gap: 16px; align-items: center; }
+        .lang-switch { display: flex; gap: 4px; background: #F2E5DA; padding: 4px 12px; border-radius: 40px; }
+        .lang-btn { background: none; border: none; padding: 4px 8px; border-radius: 30px; cursor: pointer; }
+        .lang-btn.active { background: var(--copper); color: white; }
+        .whatsapp-nav { background: #25D366; color: white; padding: 8px 16px; border-radius: 40px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+        .shop-header { background: linear-gradient(135deg, #3E2A23, #B55A30); color: white; padding: 60px 0; text-align: center; }
+        .shop-header h1 { font-size: 2.5rem; font-family: 'Playfair Display', serif; }
+        .shop-layout { display: grid; grid-template-columns: 320px 1fr; gap: 40px; margin: 50px 0; }
+        .cart-sidebar { background: white; border-radius: 24px; padding: 24px; position: sticky; top: 100px; height: fit-content; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .cart-sidebar h3 { font-size: 1.3rem; margin-bottom: 20px; color: #3E2A23; border-bottom: 2px solid var(--copper); padding-bottom: 10px; }
+        .cart-items { max-height: 400px; overflow-y: auto; margin-bottom: 20px; }
+        .cart-item { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #F0E0D2; }
+        .cart-item-img { width: 60px; height: 60px; object-fit: cover; border-radius: 12px; }
+        .cart-item-info { flex: 1; }
+        .cart-item-name { font-size: 0.85rem; font-weight: 600; }
+        .cart-item-price { font-size: 0.8rem; color: var(--copper); }
+        .cart-item-remove { color: #c44; cursor: pointer; }
+        .cart-total { border-top: 2px solid #F0E0D2; padding-top: 15px; margin-top: 15px; }
+        .cart-total p { display: flex; justify-content: space-between; font-weight: 700; }
+        .checkout-btn { width: 100%; background: #25D366; color: white; border: none; padding: 14px; border-radius: 40px; font-weight: 700; cursor: pointer; margin-top: 15px; }
+        .empty-cart { text-align: center; color: #7A5A48; padding: 30px 0; }
+        .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .shop-card { background: white; border-radius: 24px; overflow: hidden; transition: 0.2s; cursor: pointer; }
+        .shop-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        .shop-card img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+        .shop-card-info { padding: 18px; }
+        .add-to-cart { background: var(--copper); color: white; border: none; padding: 10px; border-radius: 40px; width: 100%; margin-top: 12px; cursor: pointer; font-weight: 600; transition: 0.2s; }
+        .add-to-cart:hover { background: var(--copper-dark); }
+        .filter-section {
+            background: white;
+            padding: 20px;
+            border-radius: 24px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+        }
+        .filter-select {
+            padding: 10px 16px;
+            border: 1px solid #E6D2C2;
+            border-radius: 40px;
+            font-family: 'Inter', sans-serif;
+            flex: 1;
+            min-width: 150px;
+        }
+        footer { background: #2E241F; color: #EADBCE; padding: 60px 0 20px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid #4E3629; }
+        @media (max-width: 768px) { 
+            .shop-layout { grid-template-columns: 1fr; } 
+            .cart-sidebar { position: static; } 
+            .nav-links, .nav-actions { display: none; }
+            .mobile-menu-btn { display: block; }
+            .logo img { height: 40px; }
+            .logo-text h1 { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Divine Arts & Sculptures Logo" onerror="this.style.display='none'">
+                <div class="logo-text">
+                    <h1>Divine Arts & Sculptures</h1>
+                    <p>Pancha Loha | Traditional Chola Bronze</p>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="how-its-made.html">How it's made</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="shop.html" class="active">Shop</a>
+                <a href="about.html">About</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="lang-switch"><button class="lang-btn active" data-lang="en">EN</button><button class="lang-btn" data-lang="ta">த</button><button class="lang-btn" data-lang="te">తె</button><button class="lang-btn" data-lang="hi">हि</button></div>
+                <a href="https://wa.me/918971789029" class="whatsapp-nav" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <section class="shop-header"><div class="container"><h1>Shop Our Collection</h1><p>Add items to your enquiry cart — we'll help you with pricing and availability</p></div></section>
+
+    <div class="container">
+        <div class="filter-section">
+            <select id="categoryFilter" class="filter-select">
+                <option value="all">All Categories</option>
+                <option value="Standard">Standard Idols</option>
+                <option value="Special">Special Idols</option>
+                <option value="Set">Idol Sets</option>
+                <option value="Sri Chakra">Sri Chakra</option>
+            </select>
+            <select id="typeFilter" class="filter-select">
+                <option value="all">All Types</option>
+                <option value="Standing - 4 Hands">Standing - 4 Hands</option>
+                <option value="Standing - 8 Hands">Standing - 8 Hands</option>
+                <option value="Sitting - 4 Hands">Sitting - 4 Hands</option>
+                <option value="Sitting - 8 Hands">Sitting - 8 Hands</option>
+            </select>
+            <select id="sizeFilter" class="filter-select">
+                <option value="all">All Sizes</option>
+                <option value="12 inch">12 inch</option>
+                <option value="15 inch">15 inch</option>
+                <option value="18 inch">18 inch</option>
+                <option value="21 inch">21 inch</option>
+                <option value="24 inch">24 inch</option>
+                <option value="2 feet">2 feet</option>
+                <option value="36 inch">36 inch</option>
+                <option value="Standard">Standard Size</option>
+                <option value="2x2 inch">2x2 inch</option>
+                <option value="5x5 inch">5x5 inch</option>
+                <option value="6x6 inch">6x6 inch</option>
+            </select>
+        </div>
+        
+        <div class="shop-layout">
+            <div class="cart-sidebar">
+                <h3><i class="fas fa-shopping-cart"></i> Enquiry Cart</h3>
+                <div id="cartItems" class="cart-items"><div class="empty-cart">Your cart is empty<br>Add idols you're interested in</div></div>
+                <div class="cart-total" id="cartTotal" style="display: none;">
+                    <p><span>Total Items:</span> <span id="totalCount">0</span></p>
+                    <p><span>Estimated Value:</span> <span id="totalValue">₹0</span></p>
+                    <button class="checkout-btn" id="checkoutBtn"><i class="fab fa-whatsapp"></i> Send Enquiry on WhatsApp</button>
+                </div>
+            </div>
+            <div><div class="shop-grid" id="shopGrid"></div></div>
+        </div>
+    </div>
+
+    <footer><div class="container"><div class="footer-grid"><div><h3>Divine Arts & Sculptures</h3><p>Handcrafted Pancha Loha idols using traditional Chola wax casting process.</p></div><div><h4>Contact</h4><p><i class="fas fa-phone"></i> +91 89717 89029</p><p><i class="fas fa-envelope"></i> divineartsandsculptures@gmail.com</p></div></div><div class="footer-bottom"><p>© 2024 Divine Arts & Sculptures. All rights reserved.</p></div></div></footer>
+
+    <script>
+        // Complete list of deities
+        const deities = [
+            "Lakshmi", "Mahalakshmi", "Lalitha Tripura Sundari", "Raja Rajeshwari", 
+            "Ganapati", "Saraswati", "Durga", "Varahi", "Pratyangara Devi", 
+            "Vishnu", "Balaji", "Venkateshwara", "Murugan", "Subramanya", 
+            "Ayyappa", "Hanuman", "Bhuvaneshwari", "Annapurneshwari", 
+            "Matangi", "Marriamma", "Karumari Amman", "Krishna", "Parvati", 
+            "Nataraja", "Dattatreya", "Kamakshi", "Shiva"
+        ];
+
+        // Pricing structure
+        const pricing = {
+            "Standing - 4 Hands": {12:35000, 15:48000, 18:70000, 21:100000, 24:140000},
+            "Standing - 8 Hands": {12:40000, 15:58000, 18:80000, 21:130000, 24:160000},
+            "Sitting - 4 Hands": {12:52000, 15:75000, 18:140000, 21:220000, 24:320000},
+            "Sitting - 8 Hands": {12:65000, 15:90000, 18:160000, 21:250000, 24:360000}
+        };
+
+        // Special idols
+        const specialIdols = [
+            {id:100, name:"Ranganatha (Sleeping)", size:"Standard", price:180000, deity:"Ranganatha", type:"Special", img:"https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784027895/home/ranganathar.jpg", description:"Special reclining posture"},
+            {id:101, name:"Nandi Shiva Parvati", size:"18 inch", price:145000, deity:"Shiva Parvati", type:"Special", img:"https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782624573/home/nataraja.jpg", description:"Divine couple with Nandi"},
+            {id:102, name:"Special Durga", size:"18 inch", price:140000, deity:"Durga", type:"Special", img:"https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783345201/home/durga.jpg", description:"Mahishasura Mardini"},
+            {id:103, name:"Murugan with Peacock", size:"18 inch", price:150000, deity:"Murugan", type:"Special", img:"https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782354263/home/murugan.jpg", description:"With majestic peacock"},
+            {id:104, name:"Large Ganapati", size:"36 inch", price:360000, deity:"Ganesha", type:"Special", img:"https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690781710957/home/ganesha.jpg", description:"Grand size for temples"}
+        ];
+
+        // Idol sets
+        const idolSets = [
+            {id:200, name:"Rama Parivar Set", size:"18 inch", price:180000, deity:"Rama", type:"Set", img:"https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783034771/home/ram.jpg", description:"Rama, Sita, Lakshmana, Hanuman"},
+            {id:201, name:"Rama Parivar Set", size:"2 feet", price:280000, deity:"Rama", type:"Set", img:"https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783034771/home/ram.jpg", description:"Rama, Sita, Lakshmana, Hanuman - Grand"},
+            {id:202, name:"Balaji Set", size:"18 inch", price:150000, deity:"Balaji", type:"Set", img:"https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784205175/home/vishnu.jpg", description:"Sridevi, Bhoodevi, Balaji"},
+            {id:203, name:"Balaji Set", size:"2 feet", price:250000, deity:"Balaji", type:"Set", img:"https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784205175/home/vishnu.jpg", description:"Sridevi, Bhoodevi, Balaji - Grand"},
+            {id:204, name:"Somasanda Set", size:"18 inch", price:180000, deity:"Shiva", type:"Set", img:"https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782624573/home/nataraja.jpg", description:"Shiva, Parvati, Skanda"}
+        ];
+
+        // Sri Chakra
+        const sriChakra = [
+            {id:300, name:"Sri Chakra", size:"2x2 inch", price:8000, deity:"Sri Chakra", type:"Sri Chakra", img:"https://placehold.co/400x400?text=Sri+Chakra", description:"Sacred geometric energy symbol"},
+            {id:301, name:"Sri Chakra", size:"5x5 inch", price:35000, deity:"Sri Chakra", type:"Sri Chakra", img:"https://placehold.co/400x400?text=Sri+Chakra", description:"Sacred geometric energy symbol"},
+            {id:302, name:"Sri Chakra", size:"6x6 inch", price:40000, deity:"Sri Chakra", type:"Sri Chakra", img:"https://placehold.co/400x400?text=Sri+Chakra", description:"Sacred geometric energy symbol"},
+            {id:303, name:"Sri Chakra", size:"6x6 inch (Premium)", price:45000, deity:"Sri Chakra", type:"Sri Chakra", img:"https://placehold.co/400x400?text=Sri+Chakra", description:"Premium finish"}
+        ];
+
+        function getDeityImage(deity) {
+            const imageMap = {
+                "Lakshmi": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg",
+                "Mahalakshmi": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg",
+                "Ganapati": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690781710957/home/ganesha.jpg",
+                "Ganesha": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690781710957/home/ganesha.jpg",
+                "Murugan": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782354263/home/murugan.jpg",
+                "Subramanya": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782354263/home/murugan.jpg",
+                "Shiva": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782624573/home/nataraja.jpg",
+                "Nataraja": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782624573/home/nataraja.jpg",
+                "Krishna": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782825482/home/krishna.jpg",
+                "Rama": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783034771/home/ram.jpg",
+                "Durga": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783345201/home/durga.jpg",
+                "Mariamman": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783581801/home/mariamman.jpg",
+                "Marriamma": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783581801/home/mariamman.jpg",
+                "Kamakshi": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783795692/home/kamakshi.jpg",
+                "Ranganatha": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784027895/home/ranganathar.jpg",
+                "Vishnu": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784205175/home/vishnu.jpg",
+                "Balaji": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784205175/home/vishnu.jpg",
+                "Venkateshwara": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784205175/home/vishnu.jpg",
+                "Saraswati": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784402410/home/saraswati.jpg"
+            };
+            return imageMap[deity] || "https://placehold.co/400x400?text=Divine+Idol";
+        }
+
+        // Generate all standard idols
+        function generateCatalog() {
+            let catalog = [];
+            let id = 1;
+            
+            // Generate standard idols for each deity and type
+            for (const deity of deities) {
+                for (const [type, sizePrices] of Object.entries(pricing)) {
+                    for (const [size, price] of Object.entries(sizePrices)) {
+                        catalog.push({
+                            id: id++,
+                            name: deity,
+                            size: `${size} inch`,
+                            price: price,
+                            deity: deity,
+                            type: type,
+                            category: "Standard",
+                            img: getDeityImage(deity),
+                            description: `${deity} - ${type}, ${size} inches`
+                        });
+                    }
+                }
+            }
+            
+            // Add special idols
+            specialIdols.forEach(item => {
+                catalog.push({...item, id: id++, category: "Special"});
+            });
+            
+            // Add idol sets
+            idolSets.forEach(item => {
+                catalog.push({...item, id: id++, category: "Set"});
+            });
+            
+            // Add Sri Chakra
+            sriChakra.forEach(item => {
+                catalog.push({...item, id: id++, category: "Sri Chakra"});
+            });
+            
+            return catalog;
+        }
+
+        const catalog = generateCatalog();
+        let cart = JSON.parse(localStorage.getItem('divineCart')) || [];
+
+        function renderShop() {
+            const category = document.getElementById('categoryFilter').value;
+            const type = document.getElementById('typeFilter').value;
+            const size = document.getElementById('sizeFilter').value;
+            
+            let filtered = catalog;
+            
+            if (category !== 'all') {
+                filtered = filtered.filter(item => item.category === category);
+            }
+            if (type !== 'all') {
+                filtered = filtered.filter(item => item.type === type);
+            }
+            if (size !== 'all') {
+                filtered = filtered.filter(item => item.size === size);
+            }
+            
+            const grid = document.getElementById('shopGrid');
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div style="text-align:center; grid-column:1/-1; padding:60px;"><i class="fas fa-search" style="font-size: 3rem; color: var(--copper);"></i><h3>No idols found</h3><p>Try adjusting your filters</p></div>';
+                return;
+            }
+            
+            grid.innerHTML = filtered.map(item => `
+                <div class="shop-card">
+                    <img src="${item.img}" alt="${item.name}" onerror="this.src='https://placehold.co/400x400?text=Divine+Idol'">
+                    <div class="shop-card-info">
+                        <h3>${item.name}</h3>
+                        <div style="font-size: 0.8rem; color: #7A5A48; margin: 5px 0;">
+                            <i class="fas fa-ruler"></i> ${item.size} | 
+                            <i class="fas fa-hand-peace"></i> ${item.type || item.category}
+                        </div>
+                        <div style="font-size: 1.2rem; font-weight: 700; color: var(--copper); margin: 10px 0;">₹${item.price.toLocaleString('en-IN')}</div>
+                        <button class="add-to-cart" onclick="addToCart(${item.id})"><i class="fas fa-plus"></i> Add to Enquiry Cart</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.addToCart = function(id) {
+            const item = catalog.find(i => i.id === id);
+            const existing = cart.find(i => i.id === id);
+            if (existing) { 
+                existing.quantity++; 
+            } else { 
+                cart.push({ ...item, quantity: 1 }); 
+            }
+            localStorage.setItem('divineCart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            localStorage.setItem('divineCart', JSON.stringify(cart));
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartContainer = document.getElementById('cartItems');
+            const totalContainer = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<div class="empty-cart">Your cart is empty<br>Add idols you\'re interested in</div>';
+                totalContainer.style.display = 'none';
+                return;
+            }
+            
+            totalContainer.style.display = 'block';
+            let totalItems = 0;
+            let totalValue = 0;
+            
+            cartContainer.innerHTML = cart.map(item => {
+                totalItems += item.quantity;
+                totalValue += item.price * item.quantity;
+                return `
+                    <div class="cart-item">
+                        <img class="cart-item-img" src="${item.img}" alt="${item.name}">
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name} (${item.size})</div>
+                            <div class="cart-item-price">₹${item.price.toLocaleString('en-IN')} × ${item.quantity}</div>
+                            <div style="font-size: 0.7rem; color: #7A5A48;">${item.type || item.category}</div>
+                        </div>
+                        <div class="cart-item-remove" onclick="removeFromCart(${item.id})"><i class="fas fa-trash"></i></div>
+                    </div>
+                `;
+            }).join('');
+            
+            document.getElementById('totalCount').innerText = totalItems;
+            document.getElementById('totalValue').innerHTML = `₹${totalValue.toLocaleString('en-IN')}`;
+        }
+
+        document.getElementById('checkoutBtn').addEventListener('click', () => {
+            if (cart.length === 0) { 
+                alert('Please add items to your cart first'); 
+                return; 
+            }
+            let message = "Hi Divine Arts & Sculptures! I'm interested in:%0A%0A";
+            cart.forEach(item => { 
+                message += `✨ ${item.name} (${item.size}) - ${item.type || item.category} - ₹${item.price} × ${item.quantity}%0A`; 
+            });
+            message += `%0A📦 Total Items: ${cart.reduce((s,i)=>s+i.quantity,0)}%0A💰 Estimated Total: ₹${cart.reduce((s,i)=>s+i.price*i.quantity,0).toLocaleString('en-IN')}%0A%0APlease share availability, photos, and shipping details.`;
+            window.open(`https://wa.me/918971789029?text=${message}`, '_blank');
+        });
+
+        // Filter event listeners
+        document.getElementById('categoryFilter').addEventListener('change', renderShop);
+        document.getElementById('typeFilter').addEventListener('change', renderShop);
+        document.getElementById('sizeFilter').addEventListener('change', renderShop);
+
+        // Mobile menu
+        document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
+            const navLinks = document.querySelector('.nav-links');
+            const navActions = document.querySelector('.nav-actions');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+                if (navActions) navActions.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.width = '100%';
+                if (navActions) {
+                    navActions.style.display = 'flex';
+                    navActions.style.width = '100%';
+                }
+            }
+        });
+
+        // Language switcher
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        // Initialize
+        renderShop();
+        updateCartDisplay();
+    </script>
+</body>
+</html>

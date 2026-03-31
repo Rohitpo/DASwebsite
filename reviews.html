@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews | Divine Arts & Sculptures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .reviews-header {
+            background: linear-gradient(135deg, #3E2A23, #B55A30);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .rating-summary {
+            background: white;
+            border-radius: 32px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .big-rating {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #FFB800;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        .review-card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: 0.2s;
+        }
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        .review-stars {
+            color: #FFB800;
+            margin-bottom: 15px;
+        }
+        .review-text {
+            font-style: italic;
+            line-height: 1.6;
+            margin: 15px 0;
+            color: #4E3629;
+        }
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #F0E0D2;
+        }
+        .reviewer-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--copper);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .reviewer-name {
+            font-weight: 700;
+        }
+        .reviewer-location {
+            font-size: 0.8rem;
+            color: #7A5A48;
+        }
+        .leave-review {
+            background: #F3EAE1;
+            border-radius: 32px;
+            padding: 50px;
+            text-align: center;
+            margin: 60px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🕉️</span>
+                <div><h1>Divine Arts & Sculptures</h1><p>Pancha Loha | Traditional Chola Bronze</p></div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="how-its-made.html">How it's made</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="reviews.html" class="active">Reviews</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <div class="lang-switch">
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ta">த</button>
+                    <button class="lang-btn" data-lang="te">తె</button>
+                    <button class="lang-btn" data-lang="hi">हि</button>
+                </div>
+                <a href="https://wa.me/918971789029" class="whatsapp-nav" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="reviews-header">
+        <div class="container">
+            <h1>What Our Devotees Say</h1>
+            <p>Trusted by temples, collectors, and homes across India and worldwide</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="rating-summary">
+            <div class="big-rating">4.9 <i class="fas fa-star" style="font-size: 2rem;"></i></div>
+            <p>Based on 150+ customer reviews</p>
+            <div class="rating-bars" style="margin-top: 20px;">
+                <div><span>5 ★</span> <progress value="85" max="100"></progress> 85%</div>
+                <div><span>4 ★</span> <progress value="12" max="100"></progress> 12%</div>
+                <div><span>3 ★</span> <progress value="2" max="100"></progress> 2%</div>
+            </div>
+        </div>
+
+        <div class="reviews-grid" id="reviewsGrid"></div>
+
+        <div class="leave-review">
+            <h3>Share Your Experience</h3>
+            <p>Have you purchased from us? We'd love to hear your story!</p>
+            <a href="https://wa.me/918971789029?text=Hi! I'd like to share my experience with Divine Arts & Sculptures:" class="btn-primary" style="display: inline-block; margin-top: 20px;" target="_blank"><i class="fab fa-whatsapp"></i> Leave a Review on WhatsApp</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div><h3>Divine Arts & Sculptures</h3><p>Handcrafted Pancha Loha idols using traditional Chola wax casting process.</p></div>
+                <div><h4>Contact</h4><p><i class="fas fa-phone"></i> +91 89717 89029</p><p><i class="fas fa-envelope"></i> divineartsandsculptures@gmail.com</p></div>
+            </div>
+            <div class="footer-bottom"><p>© 2024 Divine Arts & Sculptures. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const reviews = [
+            { name: "Rajesh Kumar", location: "Chennai", rating: 5, text: "The Lakshmi idol I received is absolutely stunning. The craftsmanship is exceptional - every detail is perfect. It has become the centerpiece of our home temple. Thank you for preserving this art form!", date: "2 weeks ago" },
+            { name: "Priya Venkatesh", location: "Bangalore", rating: 5, text: "I ordered a Nataraja statue for my yoga studio. The quality is breathtaking! The lost-wax process truly shows in the intricate details. Highly recommended for anyone seeking authentic Pancha Loha idols.", date: "1 month ago" },
+            { name: "Sundar Rajan", location: "Coimbatore", rating: 5, text: "Excellent service and beautiful idols. I purchased a set of Ganesha and Murugan for our new home. The team was very helpful in guiding me through sizes and pricing. Will definitely order again!", date: "3 weeks ago" },
+            { name: "Lakshmi Narayanan", location: "Mumbai", rating: 4, text: "Beautiful craftsmanship and timely delivery. The Saraswati idol is perfect for our daughter's study room. Just what we were looking for!", date: "1 month ago" },
+            { name: "Anand Srinivasan", location: "USA", rating: 5, text: "I ordered from the US and the shipping was well coordinated. The Vishnu idol arrived safely and exceeded my expectations. It's truly a piece of heritage. Thank you for sending the video of the casting process!", date: "2 months ago" },
+            { name: "Meera Subramanian", location: "Singapore", rating: 5, text: "The Durga idol is magnificent! The Pancha Loha metal gives it a special energy. I've recommended Divine Arts to all my friends in Singapore. Keep up the great work!", date: "1 month ago" }
+        ];
+
+        const grid = document.getElementById('reviewsGrid');
+        grid.innerHTML = reviews.map(review => `
+            <div class="review-card">
+                <div class="review-stars">
+                    ${'★'.repeat(review.rating)}${'☆'.repeat(5-review.rating)}
+                </div>
+                <div class="review-text">"${review.text}"</div>
+                <div class="reviewer">
+                    <div class="reviewer-avatar">${review.name.charAt(0)}</div>
+                    <div>
+                        <div class="reviewer-name">${review.name}</div>
+                        <div class="reviewer-location"><i class="fas fa-map-marker-alt"></i> ${review.location} • ${review.date}</div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    </script>
+</body>
+</html>
