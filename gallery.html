@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Divine Arts - Master Price List & Gallery | Pancha Loha Idols</title>
+    <title>Divine Arts Gallery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
         * {
             margin: 0;
@@ -33,7 +34,6 @@
             padding: 0 24px;
         }
 
-        /* header + nav */
         .top-bar {
             background: white;
             border-bottom: 1px solid #F0E0D2;
@@ -59,21 +59,9 @@
             gap: 15px;
         }
 
-        .logo-icon {
-            font-size: 2rem;
-            color: var(--terracotta);
-        }
-
-        .logo-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--deep-ochre);
-        }
-
-        .logo-text p {
-            font-size: 0.7rem;
-            color: #7A5A48;
+        .logo-icon img {
+            height: 50px;
+            width: auto;
         }
 
         .nav-links {
@@ -87,9 +75,11 @@
             font-weight: 500;
             color: #4F3527;
             transition: 0.2s;
+            cursor: pointer;
+            padding: 8px 0;
         }
 
-        .nav-links a:hover, .nav-links a.active {
+        .nav-links a:hover {
             color: var(--terracotta);
             border-bottom: 2px solid var(--gold-muted);
         }
@@ -107,97 +97,38 @@
             font-size: 0.9rem;
         }
 
-        .hero-price {
-            background: linear-gradient(105deg, #2F241E 0%, #BC6A3B 100%);
+        .hero-section {
+            background: linear-gradient(135deg, #2F241E 0%, #BC6A3B 100%);
             color: white;
-            padding: 48px 0;
+            padding: 60px 0;
             text-align: center;
+            position: relative;
         }
 
-        .hero-price h1 {
-            font-size: 2.6rem;
-            font-family: 'Playfair Display', serif;
-            letter-spacing: -0.5px;
+        .hero-lobo {
+            margin-bottom: 20px;
         }
 
-        /* main layout */
-        .pricing-master {
-            margin: 50px 0 30px;
+        .hero-lobo img {
+            max-width: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--gold-muted);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .intro-note {
-            background: #FFF7E8;
-            border-left: 6px solid var(--gold-muted);
-            padding: 18px 24px;
-            border-radius: 20px;
-            margin-bottom: 40px;
-            font-size: 0.95rem;
-        }
-
-        .filter-strip {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            background: white;
-            padding: 20px 28px;
-            border-radius: 48px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            align-items: flex-end;
-        }
-
-        .filter-group {
-            flex: 1;
-            min-width: 160px;
-        }
-
-        .filter-group label {
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--terracotta);
-            letter-spacing: 0.5px;
-        }
-
-        .filter-group select, .filter-group input {
-            width: 100%;
-            padding: 12px 16px;
-            border-radius: 60px;
-            border: 1px solid #EAD3BF;
-            background: white;
-            font-family: 'Inter', sans-serif;
-            margin-top: 6px;
-        }
-
-        .btn-reset {
-            background: #EFE2D4;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 40px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .btn-reset:hover {
-            background: var(--terracotta);
-            color: white;
-        }
-
-        /* grid cards */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 32px;
-            margin: 30px 0 60px;
+            margin: 50px 0;
         }
 
         .product-card {
             background: white;
-            border-radius: 28px;
+            border-radius: 20px;
             overflow: hidden;
             transition: all 0.25s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             cursor: pointer;
         }
 
@@ -221,16 +152,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.3s;
-        }
-
-        .placeholder-img {
-            font-size: 3rem;
-            color: #C7AD93;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
         }
 
         .card-info {
@@ -245,7 +166,7 @@
         }
 
         .specs {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #7F604B;
             display: flex;
             gap: 12px;
@@ -253,41 +174,40 @@
             flex-wrap: wrap;
         }
 
-        .price-tag {
-            font-size: 1.45rem;
-            font-weight: 800;
-            color: var(--terracotta);
-            margin: 12px 0 10px;
+        .enquiry-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        .wa-inline {
-            background: #EFF7EE;
-            padding: 8px 12px;
-            border-radius: 40px;
-            text-decoration: none;
-            color: #1C741C;
+        .enquiry-section h3 {
+            color: var(--deep-ochre);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .selected-idol {
+            background: #FDF0E4;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
             font-weight: 500;
-            font-size: 0.8rem;
+        }
+
+        .btn-enquiry {
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-        }
-
-        .stats-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .badge-photo {
-            background: var(--deep-ochre);
-            color: white;
-            font-size: 0.7rem;
-            padding: 4px 10px;
-            border-radius: 30px;
-            display: inline-block;
+            gap: 10px;
         }
 
         footer {
@@ -297,7 +217,6 @@
             margin-top: 50px;
         }
 
-        /* modal */
         .modal {
             display: none;
             position: fixed;
@@ -313,7 +232,7 @@
 
         .modal-card {
             background: white;
-            max-width: 520px;
+            max-width: 500px;
             width: 90%;
             border-radius: 32px;
             overflow: hidden;
@@ -322,7 +241,7 @@
 
         .modal-img {
             width: 100%;
-            max-height: 380px;
+            max-height: 350px;
             object-fit: cover;
         }
 
@@ -335,6 +254,7 @@
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
+            padding: 10px 15px;
         }
 
         @keyframes fadeUp {
@@ -343,17 +263,45 @@
         }
 
         @media (max-width: 720px) {
-            .filter-strip { flex-direction: column; border-radius: 28px; }
-            .nav-links { display: none; }
+            .nav-links { gap: 12px; font-size: 0.85rem; }
+            .nav-flex { flex-direction: column; text-align: center; }
         }
 
-        .upload-hint {
-            background: #FFF3E0;
-            border-radius: 24px;
-            padding: 14px 20px;
-            margin: 10px 0 20px;
-            font-size: 0.85rem;
-            border: 1px dashed var(--gold-muted);
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--terracotta);
+            background: white;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--terracotta);
+            color: white;
+        }
+
+        .photo-upload-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .photo-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 40px;
+            border: 1px solid #E2CBB8;
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -361,70 +309,49 @@
 <div class="top-bar">
     <div class="container nav-flex">
         <div class="logo-area">
-            <i class="fas fa-om logo-icon"></i>
-            <div class="logo-text">
-                <h1>Divine Arts & Sculptures</h1>
-                <p>Pancha Loha • Chola Bronze Heritage</p>
+            <div class="logo-icon">
+                <img src="GALLARY/lobo.png" alt="Logo" onerror="this.src='https://placehold.co/50x50/BC6A3B/white?text=OM'">
             </div>
         </div>
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#" class="active">Price List & Gallery</a>
-            <a href="#">How it's made</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="how-its-made.html">How it's made</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="shop.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="contact.html">Contact</a>
         </div>
         <a href="https://wa.me/918971789029" class="whatsapp-badge" target="_blank"><i class="fab fa-whatsapp"></i> Enquire Now</a>
     </div>
 </div>
 
-<section class="hero-price">
+<!-- HOME PAGE CONTENT (GALLERY + ENQUIRY) -->
+<div class="hero-section">
     <div class="container">
-        <h1>📿 Updated Divine Price List</h1>
-        <p style="margin-top: 12px; opacity: 0.9;">As shared by Surendra — new prices & photo slots for each idol</p>
+        <div class="hero-lobo">
+            <img src="GALLARY/lobo.png" alt="Lobo" onerror="this.src='https://placehold.co/150x150/BC6A3B/white?text=LOBO'">
+        </div>
     </div>
-</section>
+</div>
 
-<div class="container pricing-master">
-    <div class="intro-note">
-        <i class="fas fa-info-circle" style="margin-right: 12px; color:#BC6A3B;"></i> 
-        <strong>✨ Latest price revision (27 March 2026)</strong> — Each idol can now be paired with an actual photo. Click on any card to see bigger view & enquire. <strong>Upload or replace photos easily</strong> — use the image URL field when you click "Edit/Add Photo".
-    </div>
-
-    <div class="filter-strip">
-        <div class="filter-group"><label>📿 Deity</label><select id="deityFilter"><option value="all">All Deities</option></select></div>
-        <div class="filter-group"><label>📏 Size (inch)</label><select id="sizeFilter"><option value="all">All Sizes</option></select></div>
-        <div class="filter-group"><label>🕉️ Posture / Hands</label><select id="postureFilter"><option value="all">All Types</option><option value="Standing - 4 Hands">Standing - 4 Hands</option><option value="Standing - 8 Hands">Standing - 8 Hands</option><option value="Sitting - 4 Hands">Sitting - 4 Hands</option><option value="Sitting - 8 Hands">Sitting - 8 Hands</option><option value="Special">Special / Sets</option></select></div>
-        <div class="filter-group"><label>💰 Min Price (₹)</label><input type="number" id="minPriceInput" placeholder="Min"></div>
-        <div class="filter-group"><label>💰 Max Price</label><input type="number" id="maxPriceInput" placeholder="Max"></div>
-        <button class="btn-reset" id="resetFiltersBtn"><i class="fas fa-undo-alt"></i> Reset</button>
-    </div>
-
-    <div class="stats-row">
-        <div><span id="resultCount">0</span> divine idols found</div>
-        <div class="badge-photo"><i class="fas fa-camera"></i> Click any card → add / change photo URL</div>
+<div class="container">
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+        <button class="filter-btn" onclick="filterGallery('standing')">Standing</button>
+        <button class="filter-btn" onclick="filterGallery('sitting')">Sitting</button>
     </div>
 
     <div id="galleryContainer" class="gallery-grid"></div>
-</div>
 
-<!-- Modal for editing / viewing & photo update -->
-<div id="photoModal" class="modal">
-    <div class="modal-card">
-        <div style="padding: 16px 20px 0; text-align: right;"><span class="close-modal" id="closeModalBtn">&times;</span></div>
-        <img id="modalProductImg" class="modal-img" src="" alt="Preview">
-        <div class="modal-body">
-            <h2 id="modalTitle" style="font-family: 'Playfair Display';">Idol Name</h2>
-            <p id="modalSpecs" style="margin: 8px 0; color:#5D3F2E;"></p>
-            <div id="modalPriceDisplay" style="font-size: 1.7rem; font-weight: 800; color:#BC6A3B; margin: 12px 0;"></div>
-            <div style="background: #FCF5EA; padding: 12px; border-radius: 20px; margin: 16px 0;">
-                <label style="font-weight: 600;"><i class="fas fa-image"></i> Photo URL (update image):</label>
-                <input type="text" id="photoUrlInput" style="width: 100%; margin-top: 8px; padding: 12px; border-radius: 40px; border:1px solid #E2CBB8;" placeholder="https://... or click default image">
-                <button id="updatePhotoBtn" style="margin-top: 10px; background: var(--terracotta); color: white; border: none; padding: 8px 18px; border-radius: 40px; cursor: pointer;">Update Photo</button>
-                <p class="upload-hint" style="margin-top: 12px;"><i class="fas fa-lightbulb"></i> Tip: You can paste any working image link. If empty, we’ll show a beautiful placeholder. After update, the gallery will refresh.</p>
-            </div>
-            <a id="modalWhatsappLink" href="#" target="_blank" class="whatsapp-badge" style="background:#25D366; display: inline-flex; width: auto; margin-top: 6px;"><i class="fab fa-whatsapp"></i> Enquire about this idol</a>
+    <div class="enquiry-section">
+        <h3><i class="fas fa-paper-plane"></i> Send Query</h3>
+        <div id="selectedIdolDisplay" class="selected-idol">
+            No idol selected yet. Click on any idol above to select it.
         </div>
+        <button class="btn-enquiry" onclick="sendEnquiry()">
+            <i class="fab fa-whatsapp"></i> Send Query via WhatsApp
+        </button>
     </div>
 </div>
 
@@ -435,228 +362,170 @@
             <div><h4>Contact Master Craftsman</h4><p><i class="fas fa-phone-alt"></i> +91 89717 89029</p><p><i class="fab fa-whatsapp"></i> WhatsApp: +91 89717 89029</p></div>
         </div>
         <hr style="margin: 30px 0 20px; border-color: #4F3829;">
-        <p style="text-align: center;">© 2026 Divine Arts & Sculptures — New price edition with photo slots</p>
+        <p style="text-align: center;">© 2026 Divine Arts & Sculptures — Divine Collection</p>
     </div>
 </footer>
 
+<div id="photoModal" class="modal">
+    <div class="modal-card">
+        <div style="text-align: right;"><span class="close-modal" id="closeModalBtn">&times;</span></div>
+        <img id="modalProductImg" class="modal-img" src="" alt="Preview">
+        <div class="modal-body">
+            <h2 id="modalTitle" style="font-family: 'Playfair Display';">Idol Name</h2>
+            <p id="modalSpecs" style="margin: 8px 0; color:#5D3F2E;"></p>
+            <div style="background: #FCF5EA; padding: 12px; border-radius: 20px; margin: 16px 0;">
+                <label class="photo-upload-label"><i class="fas fa-image"></i> Upload Photo URL:</label>
+                <input type="text" id="photoUrlInput" class="photo-input" placeholder="Paste image URL here">
+                <button id="updatePhotoBtn" style="background: var(--terracotta); color: white; border: none; padding: 10px 20px; border-radius: 40px; cursor: pointer; width: 100%;">Update Photo</button>
+            </div>
+            <button onclick="selectForEnquiryAndClose()" class="btn-enquiry" style="width: 100%; justify-content: center;">
+                <i class="fas fa-paper-plane"></i> Select this Idol for Query
+            </button>
+        </div>
+    </div>
+</div>
+
 <script>
-    // ---------- MASTER DATASET based on Surendra's price list (27/3/2026) ----------
-    const sizeConfig = [
-        { size: 12, label: "12 inch" }, { size: 15, label: "15 inch" }, { size: 18, label: "18 inch" },
-        { size: 21, label: "21 inch" }, { size: 24, label: "24 inch" }
+    const rawIdols = [
+        { name: "Panchamuki Hanuman", height: "12 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/508274027_707162348703188_4980938130791114285_n.webp?stp=dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=13d280&_nc_ohc=2s7rpoal6ZsQ7kNvwFUDj9H&_nc_oc=AdpMwVurMSvlT-jeXfTlu7pXdnxMKQtwT5VerdbHUn6zGxdUIHa-TsFJarNtfq_0c1M&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=UCrGXoA7raToeAYXnhFokA&_nc_ss=7a3a8&oh=00_Af1vf7l_s6vrabOL8Tw1xwSLkd89PkDUYguVkylCs0RW7A&oe=69DAD388" },
+        { name: "Shiva Parivaram", height: "15 inch", posture: "sitting", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/516037848_722555030497253_3063115170417114734_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=S3lhBTsUuwEQ7kNvwHAoMGy&_nc_oc=AdqGb4E1MIZWDWBLtZ5xbItFtGNIBcP_oi0bcAx8wEi79ovgkMdFrfQyk4Qm-NfW8FM&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=HAxrOVHc6v5H8ebKyH_pQg&_nc_ss=7a3a8&oh=00_Af0VK8v5YV94Ux0LaR4UZpRru7UD0skk5Sm__cLpBa4AdA&oe=69DAD32F" },
+        { name: "Lakshmi Varahar", height: "12 inch", posture: "standing", image: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/551004242_785094524243303_7850550524014978325_n.webp?stp=dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=13d280&_nc_ohc=P3LDtyI2V98Q7kNvwFVY41R&_nc_oc=Adq-PK5YHRHfVskVkzuUYR1196DL0ZDRa3gp1DzH4HSJIVssyKiWaWQ9_Yk0bBIhFJ8&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=mVy5cxmJgZi_TycU836h5w&_nc_ss=7a3a8&oh=00_Af2_v6mgCduSRyGKXZobEMGvsN2tI-1O9q9_bD_gE14ydA&oe=69DADE54" },
+        { name: "Raja Rajeshwari", height: "12 inch", posture: "standing", image: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/501577536_695304829888940_8785913662339675350_n.webp?stp=dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_ohc=snJ6sSzQI9cQ7kNvwFuU9h6&_nc_oc=Adqiu6NThFvWZBtDFBPXWU8Eyn5q3vvn0yBaZt77M5AC-RyoBexxy-dRAmWxab47Eq8&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=gtgWzi8E4UJPv0kBXgBZ1Q&_nc_ss=7a3a8&oh=00_Af37cJ28H7EsRvgUQ3SNMQkFQNtH4mQ2Wp9U2awXCJTF-Q&oe=69DAFDE5" },
+        { name: "Brahma", height: "12 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/484496806_639996875419736_5999060454705890052_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=90h2MjNL3hIQ7kNvwHDOOSm&_nc_oc=AdqHPclUvftyjqwoSP86bLHkmJQpHNpIw9sYI4pAcchwt7EDr3TdeRLcmwcNvNpr00g&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=5CW-Yhlp5_WCxepnuWgKxA&_nc_ss=7a3a8&oh=00_Af21Kf9DKM2RI7qODAzySrLjbVlsyHElb0e6OUfst-00gw&oe=69DAE6C8" },
+        { name: "Mahamariamman", height: "18 inch", posture: "standing", image: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/482001090_633523209400436_4534822419398343741_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_ohc=NvxYm4W-NKQQ7kNvwHw-C8W&_nc_oc=AdpP5Rsjz2QS6wNGsbqq6r5ZChZSAK4_xDgk9JPFS7ruWQnubr8Pq5sekl4pRSn0t2w&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=YNcrC7bHfPhKha-P9QaK5w&_nc_ss=7a3a8&oh=00_Af0OeKTdaQqrsytonowrDuslWZvQpgWW6kbS48ZrUY2pkw&oe=69DB0BFE" },
+        { name: "Anathapadmanatha", height: "15 inch", posture: "sitting", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/486575397_644818718270885_1519999157974888451_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=13d280&_nc_ohc=4T8G_-XEjMsQ7kNvwHANP_S&_nc_oc=AdrdBDw-HIF-ei-jiVh0_r_IEJOrNTC5PEz18L9rfIz2zh9tFQRBJsEQvk1ZO24lKxI&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=0GwZ__potkBwa2NUIBTr7w&_nc_ss=7a3a8&oh=00_Af07FdYZQ2sC0cLgghncAEXpdRrzLKIW1ep4eKZF9n66Tg&oe=69DB0C20" },
+        { name: "Vishnu with Sridevi & Bhudevi", height: "18 inch", posture: "standing", image: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/482259325_632626112823479_5547523939559308963_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=voYz8oHaz6kQ7kNvwESz4_l&_nc_oc=AdrkRuAqd75X6OPtY61vQ8TB3WcQFwRLDZtUtBQf26clDAMF0-yoRVZO2FOYN2Itx2k&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=Y395ruZ_k9lVrago6EU1Tw&_nc_ss=7a3a8&oh=00_Af1SnEBm7mJkSV8mBnQ_z6EI_U3AGgtdVhXDHgcVkG05uw&oe=69DAE767" },
+        { name: "Durga", height: "18 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/482026935_632353672850723_237618400163770612_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=MUsHgPLEMC0Q7kNvwE-LOnW&_nc_oc=AdrCCvTSiYWhgVjsF3kLE_DWh5QZbD60jOpNNBzcQNPze4Z_mZBuBWdn4jte98--bvc&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=UG1hFSgl4U17K8yYds932g&_nc_ss=7a3a8&oh=00_Af1NiHlj4ju9j8vTYQIQN4LU6mmuHRPGHubRwxf5rgUdoQ&oe=69DAF61F" },
+        { name: "Maha Vishnu & Lakshmi", height: "18 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/481077134_631892699563487_5089762672342477108_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=tjOUHI7t-QQQ7kNvwEwpG0F&_nc_oc=AdqfoAQT5BjUJN1vWIbkZrcTfkYhyCWOzU87nrdCEUKLmciciRrZtI3ZgaM9cDzbpQU&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=HpB03F4Vp3d9CppSuMU4Ew&_nc_ss=7a3a8&oh=00_Af3zi8QJzHOU5no4F7a99HjkifLquqPwRm-jqj4whlDUeQ&oe=69DAF234" },
+        { name: "Pratyangira Devi", height: "12 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/482205274_631888726230551_5278940956874609393_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=TXmPzrEbcWoQ7kNvwGDoU3o&_nc_oc=AdoOaesxa2mAv3KuK_W2xG8XMz8P9jTalu4YpJYH2phaEhzGGzHllOyhSHZcnfzDt8g&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=fjF2-jppAdK5Sl0_3JAqsQ&_nc_ss=7a3a8&oh=00_Af3bh-KszgjzQYPfpStb1jHJTqIHRzyFpuiGylWHRzPY2w&oe=69DB0B60" },
+        { name: "Shiva Family on Nandi", height: "18 inch", posture: "sitting", image: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/481804065_629489893137101_777680107012183334_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_ohc=pufIhXnRL44Q7kNvwHMguMt&_nc_oc=AdptWrfk3RTuqdERZ9VnN3QWqDhuFDC39u-vQodjtImOXX4AiK-8cFhx07JRoaAaW0Q&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=kx91D8bbJQJZwhYDJCV2KA&_nc_ss=7a3a8&oh=00_Af1-cWwxxuycHNej6-3s44zxr9oCTQF5Xt5A7ndEOL3rFg&oe=69DB14D7" },
+        { name: "Krishna", height: "12 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/480778395_622034000549357_3744694686517906604_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=GyblfxUckHMQ7kNvwGgFxBh&_nc_oc=AdoiWbl6lIiT_rMkogRJMHZyvdHGFbzp1HvPJc9w4EuwpaV4w1lVJ5xha90BlHJOfxg&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=25D_4kFZ3RbFg68wtlUUeg&_nc_ss=7a3a8&oh=00_Af3c00sadqXzFTHF7x2CzAxfjZZbGK7OzWHS81SivQiIJQ&oe=69DAF220" },
+        { name: "Parashurama", height: "24 inch", posture: "standing", image: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/481057619_622022003883890_2483822990900671036_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=OMnZvV492-UQ7kNvwF88rB4&_nc_oc=Ado9Bmp3EJjwj4bcV0-kXBDXoAMAv2EMfdOuLcwKhgi-xCRlsuMqSTlPRr-d0ioKR8A&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=It8kn9JxLX_-3xkRLhfJNA&_nc_ss=7a3a8&oh=00_Af0qYh1mJGdSuoMe9-x39DHMi3dNi4u0nJXYrJNp1tannw&oe=69DB07C6" },
+        { name: "Lalitha", height: "10 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/480595298_621559643930126_1252067333342011884_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=5e8_7UIbNAsQ7kNvwEDxnDN&_nc_oc=AdpTjMCEk_8IdmQ-rRjLB1KBGoNjqn1U-zV8a2kzyQtcS454Fhx8PKsInl8q-DSv0-w&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=fcXKgr4BxhUi_OZA4xgguQ&_nc_ss=7a3a8&oh=00_Af0-ZYXzxaTX7PIZDi7WR6SLrzrUNCLNkLkwazj9SDNQTw&oe=69DAFD5B" },
+        { name: "Chowdeshwari Devi", height: "12 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/480663041_621281463957944_1603301823394801204_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=tV-MkbhXx4IQ7kNvwFglbhR&_nc_oc=AdrK55XiTCOraVXEb9InXF1Fjiyt18JgVxtO9i4PUoY4WOgeSVY-cc2IWjzVd4kAr48&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=yszFpWCWX_UBaZAkOxIvkw&_nc_ss=7a3a8&oh=00_Af00ElhXl7t7qU2O_S2PRDY-JGuzY7sVj03n0f8ML-cCzQ&oe=69DAEAD6" },
+        { name: "Lakshmi Devi", height: "24 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/480564768_621268127292611_6060846352479881156_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=cRfgNmehDNQQ7kNvwH1DdJk&_nc_oc=AdqD2hS1xQrhjClOEpwgyuriMlLC_XIsbByT_X5RmAQLwsVkskrfMUUd0IsvsqA3mPA&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=puNC9OB1AfqdYio05idvDg&_nc_ss=7a3a8&oh=00_Af03-zaTgljERXtem5eV1Uu9UJpqcnU-zEdy9XUXwVHbPw&oe=69DB15D6" },
+        { name: "Mariamman", height: "18 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/480533665_621259393960151_7885366480943195900_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=aZVrm3LTwnMQ7kNvwGGIDxl&_nc_oc=Adotj8Q1csy8s0d5GfGJPXIEE7PrHPZjXASRw6AAh1Dk3a61tJ-yDiPf18h0vdll0BU&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=PnESIcPfv5pp8LUuawiFFg&_nc_ss=7a3a8&oh=00_Af0Jew1GipPY-mBQmrMEtf89THsy7oPmzMHG_080qttw2g&oe=69DB0F6F" },
+        { name: "Matangi", height: "15 inch", posture: "sitting", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/480213360_617675694318521_1251693960778272503_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=bbWNK7T8sFMQ7kNvwF6_H67&_nc_oc=AdrDFvHce0_RTnoUY4Ph2rEtoTtOJ8WLGqwJsHUeLBMobDMVG06XLZgR0zk-vF0bSbA&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=ORsbiYnn4gskOwVtr1Sl8A&_nc_ss=7a3a8&oh=00_Af2mHSuediuRWlbuP-zr-9_P67sTwDPt-sppRbE44-ikew&oe=69DAF614" },
+        { name: "Sri Durga", height: "18 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/480282959_617666687652755_1401512522780971163_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_ohc=0Saq2a_L3hoQ7kNvwEMzXPq&_nc_oc=AdrbuV6HfixHJ_vDA6wv-mki0MvdEW0VAflLPps7AsBJxF3gyWnKI6HR1WNpXgDZw5w&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=S7HeLc15DcR6J2v8WY21Lw&_nc_ss=7a3a8&oh=00_Af1hUOHPc3EWi0PiX_mg4wzz3BOcJldXe_CFitczn9fNBw&oe=69DAE55C" },
+        { name: "Kamakshi", height: "8 inch", posture: "standing", image: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/470202367_608362518531576_681177740889889179_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=b895b5&_nc_ohc=D1TIP2evvlEQ7kNvwH5AZPo&_nc_oc=Adohw1-awCtbhy2tl2ZXoGVN5R04kYu7piekofQjliRCyzbsvM9Qw-bVn9iurA1MQgo&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=teGB5SqakpvmVgcjfEmDsA&_nc_ss=7a3a8&oh=00_Af2M64ElWDXCqOsithtfv8f_yewVTT2jGxC4ngkEdb6t9A&oe=69DAE4FA" },
+        { name: "Vishnu", height: "7 inch", posture: "standing", image: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/471452138_617549607612867_5268332734075629496_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=CijA82hzK4sQ7kNvwEQ9oK8&_nc_oc=AdoDLSdkcFvk0-TXQcQ9vg-tr00zlQ_zsGShDe4SjpUe2pwM2M-mtxmXMfcPYhJ0-QQ&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=NyuJAUYTd_eq-x0M9BYigg&_nc_ss=7a3a8&oh=00_Af3a9NTLV0TxL2DzForff5ZON1uVntGRwt5UU9queaS4MA&oe=69DB0643" }
     ];
 
-    // Price mapping from the messages
-    const priceMap = {
-        "Standing - 4 Hands": { 12:35000, 15:48000, 18:70000, 21:100000, 24:140000 },
-        "Standing - 8 Hands": { 12:40000, 15:58000, 18:80000, 21:130000, 24:160000 },
-        "Sitting - 4 Hands": { 12:52000, 15:75000, 18:140000, 21:220000, 24:320000 },
-        "Sitting - 8 Hands": { 12:65000, 15:90000, 18:160000, 21:250000, 24:360000 }
-    };
+    let idols = [...rawIdols];
+    let selectedIdol = null;
+    let currentFilter = 'all';
+    let customPhotos = JSON.parse(localStorage.getItem("divine_custom_photos")) || {};
 
-    // All deity names (rich collection)
-    const deityList = [
-        "Lakshmi", "Mahalakshmi", "Lalitha Tripura Sundari", "Raja Rajeshwari", "Ganapati", "Saraswati", "Durga", "Varahi", 
-        "Pratyangara Devi", "Vishnu", "Balaji", "Venkateshwara", "Murugan", "Subramanya", "Ayyappa", "Hanuman", 
-        "Bhuvaneshwari", "Annapurneshwari", "Matangi", "Marriamma", "Karumari Amman", "Krishna", "Parvati", 
-        "Nataraja", "Dattatreya", "Kamakshi", "Shiva", "Ranganatha", "Chinna Ganapati"
-    ];
-
-    // default image mapping fallback (some placeholder + we also allow real images from Google sites / custom)
-    function getDefaultImage(deityName, posture, sizeVal) {
-        // smarter: try to map if exists from known google site links
-        const knownImages = {
-            "Lakshmi": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg",
-            "Ganapati": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690781710957/home/ganesha.jpg",
-            "Murugan": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782354263/home/murugan.jpg",
-            "Shiva": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782624573/home/nataraja.jpg",
-            "Nataraja": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782624573/home/nataraja.jpg",
-            "Krishna": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782825482/home/krishna.jpg",
-            "Rama": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783034771/home/ram.jpg",
-            "Durga": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783345201/home/durga.jpg",
-            "Marriamma": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783581801/home/mariamman.jpg",
-            "Kamakshi": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783795692/home/kamakshi.jpg",
-            "Ranganatha": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784027895/home/ranganathar.jpg",
-            "Vishnu": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784205175/home/vishnu.jpg",
-            "Balaji": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784205175/home/vishnu.jpg",
-            "Saraswati": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784402410/home/saraswati.jpg"
-        };
-        if (knownImages[deityName]) return knownImages[deityName];
-        return `https://placehold.co/600x600/F7E9DD/BC6A3B?text=${encodeURIComponent(deityName)}+${posture.replace(/ /g, '+')}`;
-    }
-
-    let masterCatalog = [];
-    let customPhotos = JSON.parse(localStorage.getItem("divine_custom_photos")) || {};  // store custom image urls per itemKey
-
-    // generate full catalog based on the new price list
-    function generateFullCatalog() {
-        let items = [];
-        let idCounter = 1;
-        for (let posture of Object.keys(priceMap)) {
-            const sizesObj = priceMap[posture];
-            for (let sizeVal of sizeConfig) {
-                const sizeNum = sizeVal.size;
-                if (sizesObj[sizeNum]) {
-                    const price = sizesObj[sizeNum];
-                    for (let deity of deityList) {
-                        const itemKey = `${deity}|${posture}|${sizeNum}`;
-                        let imgUrl = customPhotos[itemKey] || getDefaultImage(deity, posture, sizeNum);
-                        items.push({
-                            id: idCounter++,
-                            deity: deity,
-                            posture: posture,
-                            sizeInch: sizeNum,
-                            sizeLabel: `${sizeNum} inch`,
-                            price: price,
-                            img: imgUrl,
-                            itemKey: itemKey,
-                            description: `${deity} • ${posture} • ${sizeNum} inch Panchaloha idol`
-                        });
-                    }
-                }
-            }
+    idols.forEach((idol) => {
+        const key = idol.name;
+        if (customPhotos[key]) {
+            idol.image = customPhotos[key];
         }
-        // add some special items from the list (sets / extra)
-        const specialItems = [
-            { id: idCounter++, deity: "Ranganatha (Sleeping)", posture: "Special", sizeLabel: "Standard", price: 180000, img: "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784027895/home/ranganathar.jpg", itemKey: "special_ranga", description: "Reclining posture" },
-            { id: idCounter++, deity: "Nandi Shiva Parvati Set", posture: "Set", sizeLabel: "18 inch", price: 145000, img: "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782624573/home/nataraja.jpg", itemKey: "special_nandi" },
-            { id: idCounter++, deity: "Murugan with Peacock", posture: "Special", sizeLabel: "18 inch", price: 150000, img: "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782354263/home/murugan.jpg", itemKey: "special_murugan_peacock" },
-            { id: idCounter++, deity: "Rama Parivar Set", posture: "Idol Set", sizeLabel: "18 inch", price: 180000, img: "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783034771/home/ram.jpg", itemKey: "rama_set" },
-            { id: idCounter++, deity: "Balaji Set (Sridevi, Bhoodevi)", posture: "Set", sizeLabel: "2 feet", price: 250000, img: "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784205175/home/vishnu.jpg", itemKey: "balaji_set" },
-            { id: idCounter++, deity: "Sri Chakra", posture: "Sri Chakra", sizeLabel: "5x5 inch", price: 35000, img: "https://placehold.co/600x600/DFC8B4/8B4513?text=Sri+Chakra", itemKey: "srichakra_5" }
-        ];
-        specialItems.forEach(sp => { 
-            if(customPhotos[sp.itemKey]) sp.img = customPhotos[sp.itemKey];
-            items.push(sp); 
-        });
-        return items;
-    }
+    });
 
-    function saveCustomPhoto(itemKey, url) {
-        customPhotos[itemKey] = url;
-        localStorage.setItem("divine_custom_photos", JSON.stringify(customPhotos));
-        // rebuild catalog to reflect new images
-        masterCatalog = generateFullCatalog();
-        applyFiltersAndRender();
-    }
-
-    let currentFiltered = [];
-
-    function renderProductCards(items) {
-        const container = document.getElementById('galleryContainer');
-        if (!items.length) {
-            container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:60px;"><i class="fas fa-camera-slash fa-3x"></i><h3>No idols match filters</h3><p>Try resetting or adjust price</p></div>`;
-            document.getElementById('resultCount').innerText = "0";
-            return;
+    function renderGallery(containerId, filter = currentFilter) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        
+        let filtered = idols;
+        if (filter === 'standing') {
+            filtered = idols.filter(i => i.posture === 'standing');
+        } else if (filter === 'sitting') {
+            filtered = idols.filter(i => i.posture === 'sitting');
         }
-        document.getElementById('resultCount').innerText = items.length;
-        container.innerHTML = items.map(item => {
-            return `
-                <div class="product-card" data-itemkey="${item.itemKey}" data-id="${item.id}">
-                    <div class="img-wrapper">
-                        <img class="product-img" src="${item.img}" alt="${item.deity}" onerror="this.onerror=null; this.src='https://placehold.co/600x600/F1E2D4/9B4B2A?text=Update+Photo';">
-                    </div>
-                    <div class="card-info">
-                        <div class="deity-name">${item.deity}</div>
-                        <div class="specs"><span><i class="fas fa-ruler"></i> ${item.sizeLabel}</span> <span><i class="fas fa-hand-peace"></i> ${item.posture}</span></div>
-                        <div class="price-tag">₹${item.price.toLocaleString('en-IN')}</div>
-                        <a href="https://wa.me/918971789029?text=Hello Divine Arts, I'm interested in ${encodeURIComponent(item.deity)} (${item.sizeLabel}, ${item.posture}) - ₹${item.price}. Please share actual photos & availability." target="_blank" class="wa-inline"><i class="fab fa-whatsapp"></i> Enquire</a>
+        
+        container.innerHTML = filtered.map((idol) => `
+            <div class="product-card" data-idol-name="${idol.name}">
+                <div class="img-wrapper">
+                    <img class="product-img" src="${idol.image}" alt="${idol.name}" onerror="this.src='https://placehold.co/600x600/F1E2D4/9B4B2A?text=Upload+Photo'">
+                </div>
+                <div class="card-info">
+                    <div class="deity-name">${idol.name}</div>
+                    <div class="specs">
+                        <span><i class="fas fa-ruler"></i> ${idol.height}</span>
+                        <span><i class="fas fa-${idol.posture === 'standing' ? 'walking' : 'chair'}"></i> ${idol.posture === 'standing' ? 'Standing' : 'Sitting'}</span>
                     </div>
                 </div>
-            `;
-        }).join('');
-        // attach click listeners for modal
-        document.querySelectorAll('.product-card').forEach(card => {
+            </div>
+        `).join('');
+        
+        document.querySelectorAll(`#${containerId} .product-card`).forEach(card => {
             card.addEventListener('click', (e) => {
-                if(e.target.closest('.wa-inline')) return;
-                const itemKey = card.dataset.itemkey;
-                const item = masterCatalog.find(i => i.itemKey === itemKey);
-                if(item) openPhotoModal(item);
+                const name = card.dataset.idolName;
+                const idol = idols.find(i => i.name === name);
+                if(idol) openPhotoModal(idol);
             });
         });
     }
 
-    let currentModalItem = null;
+    function filterGallery(filter) {
+        currentFilter = filter;
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        if(event.target) event.target.classList.add('active');
+        renderGallery('galleryContainer', filter);
+    }
 
-    function openPhotoModal(item) {
-        currentModalItem = item;
-        document.getElementById('modalTitle').innerText = `${item.deity} (${item.sizeLabel})`;
-        document.getElementById('modalSpecs').innerHTML = `<i class="fas fa-hand-peace"></i> ${item.posture}  |  <i class="fas fa-weight-hanging"></i> Pancha Loha`;
-        document.getElementById('modalPriceDisplay').innerHTML = `₹${item.price.toLocaleString('en-IN')}`;
-        document.getElementById('modalProductImg').src = item.img;
-        document.getElementById('photoUrlInput').value = item.img;
-        const waMsg = `Hi Divine Arts, I'm interested in ${item.deity} (${item.sizeLabel}, ${item.posture}) - ₹${item.price}. Kindly share more photos & pooja details.`;
-        document.getElementById('modalWhatsappLink').href = `https://wa.me/918971789029?text=${encodeURIComponent(waMsg)}`;
+    let currentModalIdol = null;
+
+    function openPhotoModal(idol) {
+        currentModalIdol = idol;
+        document.getElementById('modalTitle').innerText = idol.name;
+        document.getElementById('modalSpecs').innerHTML = `<i class="fas fa-ruler"></i> ${idol.height}  |  ${idol.posture === 'standing' ? 'Standing' : 'Sitting'}`;
+        document.getElementById('modalProductImg').src = idol.image;
+        document.getElementById('photoUrlInput').value = idol.image;
         document.getElementById('photoModal').style.display = 'flex';
     }
 
-    function applyFiltersAndRender() {
-        const deityVal = document.getElementById('deityFilter').value;
-        const sizeVal = document.getElementById('sizeFilter').value;
-        const postureVal = document.getElementById('postureFilter').value;
-        const minPrice = parseFloat(document.getElementById('minPriceInput').value) || 0;
-        const maxPrice = parseFloat(document.getElementById('maxPriceInput').value) || Infinity;
-        let filtered = masterCatalog.filter(item => {
-            if(deityVal !== 'all' && item.deity !== deityVal) return false;
-            if(sizeVal !== 'all' && item.sizeLabel !== sizeVal) return false;
-            if(postureVal !== 'all' && !item.posture.includes(postureVal)) return false;
-            if(item.price < minPrice || item.price > maxPrice) return false;
-            return true;
-        });
-        currentFiltered = filtered;
-        renderProductCards(filtered);
+    function selectForEnquiryAndClose() {
+        if (currentModalIdol) {
+            selectedIdol = currentModalIdol;
+            document.getElementById('selectedIdolDisplay').innerHTML = `
+                <strong>Selected Idol:</strong> ${selectedIdol.name}<br>
+                <strong>Height:</strong> ${selectedIdol.height}<br>
+                <strong>Posture:</strong> ${selectedIdol.posture === 'standing' ? 'Standing' : 'Sitting'}
+            `;
+            document.getElementById('photoModal').style.display = 'none';
+            document.querySelector('.enquiry-section').scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
-    function populateFilters() {
-        const deitySet = [...new Set(masterCatalog.map(i => i.deity))].sort();
-        const sizeSet = [...new Set(masterCatalog.map(i => i.sizeLabel))].sort((a,b)=> {
-            let numA = parseFloat(a) || 0; let numB = parseFloat(b) || 0; return numA-numB;
-        });
-        const deitySelect = document.getElementById('deityFilter');
-        deitySet.forEach(d => { deitySelect.innerHTML += `<option value="${d}">${d}</option>`; });
-        const sizeSelect = document.getElementById('sizeFilter');
-        sizeSet.forEach(s => { sizeSelect.innerHTML += `<option value="${s}">${s}</option>`; });
+    function sendEnquiry() {
+        if (!selectedIdol) {
+            alert('Please select an idol first by clicking on it and then "Select this Idol for Query"');
+            return;
+        }
+        
+        const message = `Namaste 🙏\n\nI am interested in the following idol:\n\n📿 Idol: ${selectedIdol.name}\n📏 Height: ${selectedIdol.height}\n🕉️ Posture: ${selectedIdol.posture === 'standing' ? 'Standing' : 'Sitting'}\n\nPlease share more details and availability.`;
+        
+        const whatsappUrl = `https://wa.me/918971789029?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
     }
 
-    // event handlers
-    document.getElementById('resetFiltersBtn').addEventListener('click', () => {
-        document.getElementById('deityFilter').value = 'all';
-        document.getElementById('sizeFilter').value = 'all';
-        document.getElementById('postureFilter').value = 'all';
-        document.getElementById('minPriceInput').value = '';
-        document.getElementById('maxPriceInput').value = '';
-        applyFiltersAndRender();
-    });
-    document.getElementById('deityFilter').addEventListener('change', applyFiltersAndRender);
-    document.getElementById('sizeFilter').addEventListener('change', applyFiltersAndRender);
-    document.getElementById('postureFilter').addEventListener('change', applyFiltersAndRender);
-    document.getElementById('minPriceInput').addEventListener('input', applyFiltersAndRender);
-    document.getElementById('maxPriceInput').addEventListener('input', applyFiltersAndRender);
     document.getElementById('updatePhotoBtn').addEventListener('click', () => {
-        if(!currentModalItem) return;
+        if(!currentModalIdol) return;
         const newUrl = document.getElementById('photoUrlInput').value.trim();
         if(newUrl) {
-            saveCustomPhoto(currentModalItem.itemKey, newUrl);
-            applyFiltersAndRender();
-            if(currentModalItem) {
-                currentModalItem.img = newUrl;
-                document.getElementById('modalProductImg').src = newUrl;
-            }
-            // close modal optionally after update
-            setTimeout(() => { document.getElementById('photoModal').style.display = 'none'; }, 600);
+            customPhotos[currentModalIdol.name] = newUrl;
+            localStorage.setItem("divine_custom_photos", JSON.stringify(customPhotos));
+            currentModalIdol.image = newUrl;
+            renderGallery('galleryContainer', currentFilter);
+            document.getElementById('modalProductImg').src = newUrl;
+            setTimeout(() => { document.getElementById('photoModal').style.display = 'none'; }, 500);
         } else {
-            alert("Please provide a valid image URL");
+            alert("Please paste a valid image URL");
         }
     });
+
     document.getElementById('closeModalBtn').addEventListener('click', () => {
         document.getElementById('photoModal').style.display = 'none';
     });
-    window.onclick = function(e) { if(e.target === document.getElementById('photoModal')) document.getElementById('photoModal').style.display = 'none'; };
-    
-    // initial generation
-    masterCatalog = generateFullCatalog();
-    populateFilters();
-    applyFiltersAndRender();
+
+    window.onclick = function(e) { 
+        if(e.target === document.getElementById('photoModal')) 
+            document.getElementById('photoModal').style.display = 'none'; 
+    };
+
+    renderGallery('galleryContainer', 'all');
 </script>
 </body>
 </html>
