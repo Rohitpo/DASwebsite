@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Divine Arts & Sculptures | Home</title>
+    <title>Divine Arts & Sculptures | Sacred Bronze Idols</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
@@ -61,9 +61,10 @@
         }
 
         .logo img {
-            height: 55px;
+            height: 60px;
             width: auto;
             object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
         }
 
         .logo-text h1 {
@@ -334,13 +335,6 @@
             margin: 6px 0;
         }
 
-        .price {
-            color: var(--copper);
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-
         .whatsapp-btn-small {
             display: inline-flex;
             align-items: center;
@@ -352,6 +346,7 @@
             color: #1F8B4C;
             font-size: 0.85rem;
             font-weight: 500;
+            margin-top: 8px;
         }
 
         .text-center {
@@ -501,42 +496,6 @@
             font-size: 0.85rem;
         }
 
-        /* Pricing Table */
-        .pricing-preview {
-            padding: 60px 0;
-            background: #F3EAE1;
-        }
-
-        .pricing-table {
-            background: white;
-            border-radius: 32px;
-            overflow-x: auto;
-            padding: 20px;
-        }
-
-        .pricing-table table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        .pricing-table th {
-            background: var(--copper);
-            color: white;
-            padding: 12px;
-            text-align: center;
-        }
-
-        .pricing-table td {
-            padding: 10px;
-            text-align: center;
-            border-bottom: 1px solid #F0E0D2;
-        }
-
-        .pricing-table tr:hover {
-            background: #FDF8F0;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links, .nav-actions {
@@ -555,7 +514,7 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             .logo img {
-                height: 45px;
+                height: 50px;
             }
             .logo-text h1 {
                 font-size: 1rem;
@@ -571,10 +530,8 @@
     <nav class="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <img src="logo.png" alt="Divine Arts & Sculptures Logo" onerror="this.style.display='none';">
+                <img src="GALLARY/lobo.png" alt="Divine Arts & Sculptures Logo" onerror="this.src='https://placehold.co/200x80?text=Divine+Arts'; this.style.objectFit='contain';">
                 <div class="logo-text">
-                    <h1>Divine Arts & Sculptures</h1>
-                    <p>Pancha Loha | Traditional Chola Bronze</p>
                 </div>
             </div>
             <div class="nav-links">
@@ -653,7 +610,7 @@
         </div>
     </section>
 
-    <!-- Trending Products -->
+    <!-- Trending Products - No Prices Anywhere -->
     <section class="trending">
         <div class="container">
             <div class="section-header">
@@ -665,34 +622,7 @@
                 <div style="text-align:center; grid-column:1/-1; padding:40px;">Loading divine collection...</div>
             </div>
             <div class="text-center">
-                <a href="gallery.html" class="btn-secondary">View All Products <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Preview -->
-    <section class="pricing-preview">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Price Guide</span>
-                <h2>Standard Idol Pricing</h2>
-                <p>Based on size, posture, and number of hands</p>
-            </div>
-            <div class="pricing-table">
-                <tr>
-                    <thead>
-                        <tr><th>Type</th><th>12 inch</th><th>15 inch</th><th>18 inch</th><th>21 inch</th><th>24 inch</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Standing - 4 Hands</strong></td><td>₹35,000</td><td>₹48,000</td><td>₹70,000</td><td>₹1,00,000</td><td>₹1,40,000</td></tr>
-                        <tr><td><strong>Standing - 8 Hands</strong></td><td>₹40,000</td><td>₹58,000</td><td>₹80,000</td><td>₹1,30,000</td><td>₹1,60,000</td></tr>
-                        <tr><td><strong>Sitting - 4 Hands</strong></td><td>₹52,000</td><td>₹75,000</td><td>₹1,40,000</td><td>₹2,20,000</td><td>₹3,20,000</td></tr>
-                        <tr><td><strong>Sitting - 8 Hands</strong></td><td>₹65,000</td><td>₹90,000</td><td>₹1,60,000</td><td>₹2,50,000</td><td>₹3,60,000</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="text-center" style="margin-top: 30px;">
-                <p style="color: #7A5A48;"><i class="fas fa-info-circle"></i> Special idols and sets have custom pricing. Contact us for details.</p>
+                <a href="shop.html" class="btn-secondary">View All Products <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -788,23 +718,7 @@
     </footer>
 
     <script>
-        // Complete catalog with new pricing structure
-        const deitiesList = [
-            "Lakshmi", "Mahalakshmi", "Lalitha Tripura Sundari", "Raja Rajeshwari", 
-            "Ganapati", "Saraswati", "Durga", "Varahi", "Pratyangara Devi", 
-            "Vishnu", "Balaji", "Venkateshwara", "Murugan", "Subramanya", 
-            "Ayyappa", "Hanuman", "Bhuvaneshwari", "Annapurneshwari", 
-            "Matangi", "Marriamma", "Karumari Amman", "Krishna", "Parvati", 
-            "Nataraja", "Dattatreya", "Kamakshi", "Shiva"
-        ];
-
-        const pricing = {
-            "Standing - 4 Hands": {12:35000, 15:48000, 18:70000, 21:100000, 24:140000},
-            "Standing - 8 Hands": {12:40000, 15:58000, 18:80000, 21:130000, 24:160000},
-            "Sitting - 4 Hands": {12:52000, 15:75000, 18:140000, 21:220000, 24:320000},
-            "Sitting - 8 Hands": {12:65000, 15:90000, 18:160000, 21:250000, 24:360000}
-        };
-
+        // Helper function for deity images
         function getDeityImage(deity) {
             const imageMap = {
                 "Lakshmi": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg",
@@ -812,60 +726,100 @@
                 "Murugan": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782354263/home/murugan.jpg",
                 "Shiva": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782624573/home/nataraja.jpg",
                 "Krishna": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782825482/home/krishna.jpg",
-                "Rama": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783034771/home/ram.jpg",
-                "Durga": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783345201/home/durga.jpg",
-                "Vishnu": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784205175/home/vishnu.jpg",
-                "Saraswati": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690784402410/home/saraswati.jpg"
+                "Durga": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783345201/home/durga.jpg"
             };
             return imageMap[deity] || "https://placehold.co/400x400?text=Divine+Idol";
         }
 
-        // Generate trending products (12 inch Standing 4 Hands for top deities)
+        // Trending products data — absolutely NO price displayed
         const trendingProducts = [
-            {name: "Lakshmi Devi", size: "12 inch", type: "Standing - 4 Hands", price: 35000, deity: "Lakshmi"},
-            {name: "Ganapati", size: "12 inch", type: "Standing - 4 Hands", price: 35000, deity: "Ganapati"},
-            {name: "Shiva Nataraja", size: "12 inch", type: "Standing - 4 Hands", price: 35000, deity: "Shiva"},
-            {name: "Durga Devi", size: "12 inch", type: "Standing - 8 Hands", price: 40000, deity: "Durga"},
-            {name: "Murugan", size: "12 inch", type: "Standing - 4 Hands", price: 35000, deity: "Murugan"},
-            {name: "Krishna", size: "12 inch", type: "Standing - 4 Hands", price: 35000, deity: "Krishna"}
+            { name: "Lakshmi Devi", size: "12 inch", type: "Standing - 4 Hands", deity: "Lakshmi" },
+            { name: "Ganapati", size: "12 inch", type: "Standing - 4 Hands", deity: "Ganapati" },
+            { name: "Shiva Nataraja", size: "12 inch", type: "Standing - 4 Hands", deity: "Shiva" },
+            { name: "Durga Devi", size: "12 inch", type: "Standing - 8 Hands", deity: "Durga" },
+            { name: "Murugan", size: "12 inch", type: "Standing - 4 Hands", deity: "Murugan" },
+            { name: "Krishna", size: "12 inch", type: "Standing - 4 Hands", deity: "Krishna" }
         ];
 
+        // Render trending products with enquiry button only — no price tag
         const grid = document.getElementById('trendingGrid');
-        grid.innerHTML = trendingProducts.map(item => `
-            <div class="product-card" onclick="window.location.href='shop.html'">
-                <img src="${getDeityImage(item.deity)}" alt="${item.name}" onerror="this.src='https://placehold.co/300x300?text=Divine+Idol'">
-                <div class="product-info">
-                    <h3>${item.name}</h3>
-                    <p class="size">${item.size} | ${item.type}</p>
-                    <p class="price">₹${item.price.toLocaleString('en-IN')}</p>
-                    <a href="https://wa.me/918971789029?text=Hi! I'm interested in ${item.name} (${item.size}) - ${item.type}" class="whatsapp-btn-small" target="_blank"><i class="fab fa-whatsapp"></i> Enquire</a>
+        if (grid) {
+            grid.innerHTML = trendingProducts.map(item => `
+                <div class="product-card" onclick="window.location.href='shop.html'">
+                    <img src="${getDeityImage(item.deity)}" alt="${item.name}" onerror="this.src='https://placehold.co/300x300?text=Divine+Idol'">
+                    <div class="product-info">
+                        <h3>${item.name}</h3>
+                        <p class="size">${item.size} | ${item.type}</p>
+                        <a href="https://wa.me/918971789029?text=Hi! I'm interested in ${item.name} (${item.size}) - ${item.type}" class="whatsapp-btn-small" target="_blank"><i class="fab fa-whatsapp"></i> Enquire Now</a>
+                    </div>
                 </div>
-            </div>
-        `).join('');
+            `).join('');
+        }
 
-        // Mobile menu
-        document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
-            const navLinks = document.querySelector('.nav-links');
-            const navActions = document.querySelector('.nav-actions');
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-                if (navActions) navActions.style.display = 'none';
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                const navActions = document.querySelector('.nav-actions');
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = '';
+                    if (navActions) navActions.style.display = '';
+                    if (window.innerWidth <= 768) {
+                        navLinks.style.display = 'none';
+                        if (navActions) navActions.style.display = 'none';
+                    }
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.width = '100%';
+                    if (navActions) {
+                        navActions.style.display = 'flex';
+                        navActions.style.flexDirection = 'column';
+                        navActions.style.width = '100%';
+                        navActions.style.alignItems = 'stretch';
+                    }
+                }
+            });
+        }
+
+        // Handle window resize for responsive menu
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                const navLinks = document.querySelector('.nav-links');
+                const navActions = document.querySelector('.nav-actions');
+                if (navLinks) navLinks.style.display = '';
+                if (navActions) navActions.style.display = '';
             } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.width = '100%';
-                if (navActions) {
-                    navActions.style.display = 'flex';
-                    navActions.style.width = '100%';
+                const navLinks = document.querySelector('.nav-links');
+                const navActions = document.querySelector('.nav-actions');
+                if (navLinks && navLinks.style.display !== 'flex') {
+                    navLinks.style.display = 'none';
+                    if (navActions) navActions.style.display = 'none';
                 }
             }
         });
 
-        // Language switcher
+        // Language switcher visual active state (no functional translation, just UI)
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
+                // Optional: show a subtle toast that language demo is UI only
+                const msg = document.createElement('div');
+                msg.innerText = 'Language demo — site content remains in English for now.';
+                msg.style.position = 'fixed';
+                msg.style.bottom = '20px';
+                msg.style.left = '50%';
+                msg.style.transform = 'translateX(-50%)';
+                msg.style.backgroundColor = '#2E241F';
+                msg.style.color = '#EADBCE';
+                msg.style.padding = '8px 20px';
+                msg.style.borderRadius = '40px';
+                msg.style.fontSize = '0.8rem';
+                msg.style.zIndex = '9999';
+                document.body.appendChild(msg);
+                setTimeout(() => msg.remove(), 2000);
             });
         });
     </script>
