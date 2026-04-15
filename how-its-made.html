@@ -7,13 +7,118 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .logo-img {
+            height: 60px;
+            width: auto;
+            margin-right: 15px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo h1 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        .logo p {
+            font-size: 0.8rem;
+            margin: 0;
+        }
+        .process-hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .process-steps {
+            padding: 60px 0;
+            background: #f5f5f5;
+        }
+        .step {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .step:hover {
+            transform: translateX(10px);
+        }
+        .step-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #b8860b;
+            font-family: 'Playfair Display', serif;
+            min-width: 80px;
+        }
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .step-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .process-video {
+            padding: 60px 0;
+            text-align: center;
+            background: #fff;
+        }
+        .process-video h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .video-placeholder {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px;
+            border-radius: 15px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .video-placeholder:hover {
+            transform: scale(1.02);
+        }
+        .video-placeholder i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .step {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .process-hero h1 {
+                font-size: 2rem;
+            }
+            .video-placeholder {
+                padding: 40px;
+            }
+            .logo-img {
+                height: 40px;
+            }
+            .logo h1 {
+                font-size: 0.9rem;
+            }
+            .logo p {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <span class="logo-icon">🕉️</span>
-                <div><h1>Divine Arts & Sculptures</h1><p>Pancha Loha | Traditional Chola Bronze</p></div>
+                <img src="GALLARY/lobo.png" alt="Divine Arts & Sculptures Logo" class="logo-img">
             </div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -93,7 +198,7 @@
     <section class="process-video">
         <div class="container">
             <h3>Watch the Traditional Process</h3>
-            <div class="video-placeholder">
+            <div class="video-placeholder" onclick="alert('Video coming soon! Check our YouTube channel for demonstrations.')">
                 <i class="fas fa-play-circle"></i>
                 <p>Video demonstration of the ancient Chola wax casting technique</p>
             </div>
@@ -103,10 +208,27 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div><h3>Divine Arts & Sculptures</h3><p>Handcrafted Pancha Loha idols using traditional Chola wax casting process.</p></div>
-                <div><h4>Contact</h4><p><i class="fas fa-phone"></i> +91 89717 89029</p><p><i class="fas fa-envelope"></i> divineartsandsculptures@gmail.com</p></div>
+                <div>
+                    <h3>Divine Arts & Sculptures</h3>
+                    <p>Handcrafted Pancha Loha idols using traditional Chola wax casting process.</p>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +91 89717 89029</p>
+                    <p><i class="fas fa-envelope"></i> divineartsandsculptures@gmail.com</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +91 89717 89029</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html" style="color: #b8860b; text-decoration: none;">Home</a></p>
+                    <p><a href="shop.html" style="color: #b8860b; text-decoration: none;">Shop</a></p>
+                    <p><a href="gallery.html" style="color: #b8860b; text-decoration: none;">Gallery</a></p>
+                    <p><a href="contact.html" style="color: #b8860b; text-decoration: none;">Contact</a></p>
+                </div>
             </div>
-            <div class="footer-bottom"><p>© 2024 Divine Arts & Sculptures. All rights reserved.</p></div>
+            <div class="footer-bottom">
+                <p>© 2024 Divine Arts & Sculptures. All rights reserved.</p>
+            </div>
         </div>
     </footer>
     <script src="script.js"></script>
