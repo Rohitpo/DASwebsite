@@ -58,31 +58,20 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-shrink: 0;
         }
 
         .logo img {
             height: 60px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
-        }
-
-        .logo-text h1 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--copper-dark);
-            font-family: 'Playfair Display', serif;
-        }
-
-        .logo-text p {
-            font-size: 0.7rem;
-            color: #7A5A48;
         }
 
         .nav-links {
             display: flex;
             gap: 24px;
             flex-wrap: wrap;
+            margin: 0 auto;
         }
 
         .nav-links a {
@@ -100,6 +89,7 @@
             display: flex;
             gap: 16px;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .lang-switch {
@@ -118,6 +108,8 @@
             cursor: pointer;
             font-weight: 500;
             font-family: 'Inter', sans-serif;
+            text-decoration: none;
+            color: #4E3629;
         }
 
         .lang-btn.active {
@@ -135,6 +127,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
         }
 
         .mobile-menu-btn {
@@ -145,16 +138,49 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Hero Section with Scrolling Background */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg');
-            background-size: cover;
-            background-position: center;
-            min-height: 550px;
+            min-height: 600px;
             display: flex;
             align-items: center;
             color: white;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
         }
 
         .hero-content {
@@ -226,7 +252,7 @@
             text-decoration: none;
         }
 
-        /* Welcome Section */
+        /* Welcome Section with Scrolling Images */
         .welcome {
             padding: 80px 0;
             background: white;
@@ -272,15 +298,131 @@
             color: var(--copper);
         }
 
-        .welcome-image img {
-            width: 100%;
+        .welcome-image-slider {
+            position: relative;
             border-radius: 32px;
+            overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            aspect-ratio: 1;
         }
 
-        /* Trending */
-        .trending, .categories, .stats {
+        .welcome-slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .welcome-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .welcome-slide.active {
+            opacity: 1;
+        }
+
+        .welcome-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 5;
+        }
+
+        .welcome-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .welcome-dot.active {
+            background: var(--copper);
+            width: 25px;
+            border-radius: 10px;
+        }
+
+        /* Scrolling Idols Gallery Section */
+        .scrolling-gallery {
             padding: 80px 0;
+            background: #FFF9F3;
+            overflow: hidden;
+        }
+
+        .gallery-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+            scrollbar-width: thin;
+            cursor: grab;
+        }
+
+        .gallery-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .gallery-scroll::-webkit-scrollbar-track {
+            background: #EADBCE;
+            border-radius: 10px;
+        }
+
+        .gallery-scroll::-webkit-scrollbar-thumb {
+            background: var(--copper);
+            border-radius: 10px;
+        }
+
+        .gallery-item {
+            flex: 0 0 280px;
+            scroll-snap-align: start;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .gallery-item-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .gallery-item-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: var(--copper-dark);
+        }
+
+        .gallery-item-info p {
+            font-size: 0.85rem;
+            color: #7A5A48;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 80px 0;
+            background: #FFF9F3;
         }
 
         .section-header {
@@ -292,71 +434,6 @@
             font-size: 2rem;
             font-family: 'Playfair Display', serif;
             margin: 12px 0;
-        }
-
-        .trending-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        .product-card img {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 20px;
-        }
-
-        .product-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 6px;
-        }
-
-        .size {
-            color: #7A5A48;
-            font-size: 0.85rem;
-            margin: 6px 0;
-        }
-
-        .whatsapp-btn-small {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #25D36610;
-            padding: 6px 16px;
-            border-radius: 40px;
-            text-decoration: none;
-            color: #1F8B4C;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-top: 8px;
-        }
-
-        .text-center {
-            text-align: center;
-            margin-top: 40px;
-        }
-
-        /* Categories */
-        .categories {
-            background: #FFF9F3;
         }
 
         .categories-grid {
@@ -411,6 +488,7 @@
 
         /* Stats */
         .stats {
+            padding: 80px 0;
             background: var(--copper);
             color: white;
         }
@@ -496,7 +574,37 @@
             font-size: 0.85rem;
         }
 
+        .language-links {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .language-links a {
+            color: #EADBCE;
+            text-decoration: none;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            transition: 0.2s;
+        }
+
+        .language-links a:hover {
+            background: var(--copper);
+            color: white;
+        }
+
         /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links, .nav-actions {
                 display: none;
@@ -516,11 +624,11 @@
             .logo img {
                 height: 50px;
             }
-            .logo-text h1 {
-                font-size: 1rem;
-            }
             .video-container iframe {
                 height: 250px;
+            }
+            .gallery-item {
+                flex: 0 0 240px;
             }
         }
     </style>
@@ -530,9 +638,7 @@
     <nav class="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <img src="GALLARY/lobo.png" alt="Divine Arts & Sculptures Logo" onerror="this.src='https://placehold.co/200x80?text=Divine+Arts'; this.style.objectFit='contain';">
-                <div class="logo-text">
-                </div>
+                <img src="GALLARY/lobo.png" alt="Divine Arts & Sculptures Logo" onerror="this.src='https://placehold.co/200x80?text=Divine+Arts';">
             </div>
             <div class="nav-links">
                 <a href="index.html" class="active">Home</a>
@@ -544,22 +650,29 @@
                 <a href="contact.html">Contact</a>
             </div>
             <div class="nav-actions">
-                <div class="lang-switch">
-                    <button class="lang-btn active" data-lang="en">EN</button>
-                    <button class="lang-btn" data-lang="ta">த</button>
-                    <button class="lang-btn" data-lang="te">తె</button>
-                    <button class="lang-btn" data-lang="hi">हि</button>
-                </div>
                 <a href="https://wa.me/918971789029" class="whatsapp-nav" target="_blank">
                     <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
+                <div class="lang-switch">
+                    <a href="index.html" class="lang-btn active">EN</a>
+                    <a href="index-ta.html" class="lang-btn">த</a>
+                    <a href="index-te.html" class="lang-btn">తె</a>
+                    <a href="index-ka.html" class="lang-btn">ಕ</a>
+                    <a href="index-hi.html" class="lang-btn">हि</a>
+                </div>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Scrolling Background Images -->
     <section class="hero">
+        <div class="hero-slider" id="heroSlider">
+            <div class="slide active" style="background-image: url('https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/516037848_722555030497253_3063115170417114734_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=S3lhBTsUuwEQ7kNvwHAoMGy&_nc_oc=AdqGb4E1MIZWDWBLtZ5xbItFtGNIBcP_oi0bcAx8wEi79ovgkMdFrfQyk4Qm-NfW8FM&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=HAxrOVHc6v5H8ebKyH_pQg&_nc_ss=7a3a8&oh=00_Af0VK8v5YV94Ux0LaR4UZpRru7UD0skk5Sm__cLpBa4AdA&oe=69DAD32F')"></div>
+            <div class="slide" style="background-image: url('https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/480663041_621281463957944_1603301823394801204_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=tV-MkbhXx4IQ7kNvwFglbhR&_nc_oc=AdrK55XiTCOraVXEb9InXF1Fjiyt18JgVxtO9i4PUoY4WOgeSVY-cc2IWjzVd4kAr48&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=yszFpWCWX_UBaZAkOxIvkw&_nc_ss=7a3a8&oh=00_Af00ElhXl7t7qU2O_S2PRDY-JGuzY7sVj03n0f8ML-cCzQ&oe=69DAEAD6')"></div>
+            <div class="slide" style="background-image: url('https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/472665992_623514800349681_3010006560853070414_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=X7BTHDBuFL0Q7kNvwHqB1Qc&_nc_oc=AdqPVCzXpaHsIUZldK-cKCzPCzyKeVMwCJMZknJ7k33CbUCrylFFGYedTxrMCsg4KFU&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=-t5KMWHxfGJYkGOB1oQktQ&_nc_ss=7a3a8&oh=00_Af2Kqy4iRlbOFd4YLFFLYWUZc58c8xz-JVAxDYsmCI9Xsw&oe=69DB035A')"></div>
+            <div class="slide" style="background-image: url('https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/474640841_601321939287230_3773741343438129674_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=axnRucL6_OsQ7kNvwHoAJ_i&_nc_oc=AdriqS6q_0MBjlcdJiry87sksQUTwKbRJ3dsnWXx1qxmCRavg8SLEx9VzEIW3e5RTOo&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=mQzZLhcdXb4OivvTQMR2RQ&_nc_ss=7a3a8&oh=00_Af0ytXSjwyccXudUYSA20WSNTpFYHAp3EDd6Ma945Yzsew&oe=69DB087F')"></div>
+        </div>
         <div class="container hero-content">
             <div class="hero-text">
                 <span class="hero-badge">4500 Years of Heritage</span>
@@ -573,7 +686,7 @@
         </div>
     </section>
 
-    <!-- Welcome Section -->
+    <!-- Welcome Section with Scrolling Images -->
     <section class="welcome">
         <div class="container">
             <div class="welcome-grid">
@@ -589,14 +702,35 @@
                         <div class="feature"><i class="fas fa-check-circle"></i> Creative Lamps in Brass & Silver</div>
                     </div>
                 </div>
-                <div class="welcome-image">
-                    <img src="https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg" alt="Divine Idol">
+                <div class="welcome-image-slider" id="welcomeSlider">
+                    <div class="welcome-slides" id="welcomeSlides">
+                        <img class="welcome-slide active" src="https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/501577536_695304829888940_8785913662339675350_n.webp?stp=dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_ohc=snJ6sSzQI9cQ7kNvwFuU9h6&_nc_oc=Adqiu6NThFvWZBtDFBPXWU8Eyn5q3vvn0yBaZt77M5AC-RyoBexxy-dRAmWxab47Eq8&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=gtgWzi8E4UJPv0kBXgBZ1Q&_nc_ss=7a3a8&oh=00_Af37cJ28H7EsRvgUQ3SNMQkFQNtH4mQ2Wp9U2awXCJTF-Q&oe=69DAFDE5" alt="Raja Rajeshwari">
+                        <img class="welcome-slide" src="https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/484496806_639996875419736_5999060454705890052_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=90h2MjNL3hIQ7kNvwHDOOSm&_nc_oc=AdqHPclUvftyjqwoSP86bLHkmJQpHNpIw9sYI4pAcchwt7EDr3TdeRLcmwcNvNpr00g&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=5CW-Yhlp5_WCxepnuWgKxA&_nc_ss=7a3a8&oh=00_Af21Kf9DKM2RI7qODAzySrLjbVlsyHElb0e6OUfst-00gw&oe=69DAE6C8" alt="Brahma">
+                        <img class="welcome-slide" src="https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/482001090_633523209400436_4534822419398343741_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_ohc=NvxYm4W-NKQQ7kNvwHw-C8W&_nc_oc=AdpP5Rsjz2QS6wNGsbqq6r5ZChZSAK4_xDgk9JPFS7ruWQnubr8Pq5sekl4pRSn0t2w&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=YNcrC7bHfPhKha-P9QaK5w&_nc_ss=7a3a8&oh=00_Af0OeKTdaQqrsytonowrDuslWZvQpgWW6kbS48ZrUY2pkw&oe=69DB0BFE" alt="Mahamariamman">
+                        <img class="welcome-slide" src="https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/486575397_644818718270885_1519999157974888451_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=13d280&_nc_ohc=4T8G_-XEjMsQ7kNvwHANP_S&_nc_oc=AdrdBDw-HIF-ei-jiVh0_r_IEJOrNTC5PEz18L9rfIz2zh9tFQRBJsEQvk1ZO24lKxI&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=0GwZ__potkBwa2NUIBTr7w&_nc_ss=7a3a8&oh=00_Af07FdYZQ2sC0cLgghncAEXpdRrzLKIW1ep4eKZF9n66Tg&oe=69DB0C20" alt="Ananthapadmanabha">
+                        <img class="welcome-slide" src="https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/482259325_632626112823479_5547523939559308963_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=voYz8oHaz6kQ7kNvwESz4_l&_nc_oc=AdrkRuAqd75X6OPtY61vQ8TB3WcQFwRLDZtUtBQf26clDAMF0-yoRVZO2FOYN2Itx2k&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=Y395ruZ_k9lVrago6EU1Tw&_nc_ss=7a3a8&oh=00_Af1SnEBm7mJkSV8mBnQ_z6EI_U3AGgtdVhXDHgcVkG05uw&oe=69DAE767" alt="Vishnu with Sridevi & Bhudevi">
+                    </div>
+                    <div class="welcome-dots" id="welcomeDots"></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Section - YouTube Shorts -->
+    <!-- Scrolling Divine Idols Gallery Section -->
+    <section class="scrolling-gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Divine Collection</span>
+                <h2>Sacred Idols Crafted With Devotion</h2>
+                <p>Explore our handcrafted Panchaloha bronze idols</p>
+            </div>
+            <div class="gallery-scroll" id="scrollingGallery">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
     <section class="video-section">
         <div class="container">
             <div class="section-header">
@@ -606,23 +740,6 @@
             </div>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/BTPIaIKc-VU" title="Divine Arts & Sculptures - Wax Process" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trending Products - No Prices Anywhere -->
-    <section class="trending">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Best Sellers</span>
-                <h2>Trending This Month</h2>
-                <p>Most loved by our customers — handcrafted with devotion</p>
-            </div>
-            <div class="trending-grid" id="trendingGrid">
-                <div style="text-align:center; grid-column:1/-1; padding:40px;">Loading divine collection...</div>
-            </div>
-            <div class="text-center">
-                <a href="shop.html" class="btn-secondary">View All Products <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
@@ -710,6 +827,16 @@
                     <p><i class="fas fa-envelope"></i> divineartsandsculptures@gmail.com</p>
                     <p><i class="fab fa-whatsapp"></i> WhatsApp: +91 89717 89029</p>
                 </div>
+                <div>
+                    <h4>Languages</h4>
+                    <div class="language-links">
+                        <a href="index.html">English</a>
+                        <a href="index-ta.html">தமிழ்</a>
+                        <a href="index-te.html">తెలుగు</a>
+                        <a href="index-ka.html">ಕನ್ನಡ</a>
+                        <a href="index-hi.html">हिन्दी</a>
+                    </div>
+                </div>
             </div>
             <div class="footer-bottom">
                 <p>© 2024 Divine Arts & Sculptures. All rights reserved. Crafted with devotion.</p>
@@ -718,39 +845,76 @@
     </footer>
 
     <script>
-        // Helper function for deity images
-        function getDeityImage(deity) {
-            const imageMap = {
-                "Lakshmi": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg",
-                "Ganapati": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690781710957/home/ganesha.jpg",
-                "Murugan": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782354263/home/murugan.jpg",
-                "Shiva": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782624573/home/nataraja.jpg",
-                "Krishna": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782825482/home/krishna.jpg",
-                "Durga": "https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690783345201/home/durga.jpg"
-            };
-            return imageMap[deity] || "https://placehold.co/400x400?text=Divine+Idol";
+        // Hero Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        
+        function nextSlide() {
+            if (slides.length) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+        }
+        
+        if (slides.length > 0) {
+            setInterval(nextSlide, 4000);
         }
 
-        // Trending products data — absolutely NO price displayed
-        const trendingProducts = [
-            { name: "Lakshmi Devi", size: "12 inch", type: "Standing - 4 Hands", deity: "Lakshmi" },
-            { name: "Ganapati", size: "12 inch", type: "Standing - 4 Hands", deity: "Ganapati" },
-            { name: "Shiva Nataraja", size: "12 inch", type: "Standing - 4 Hands", deity: "Shiva" },
-            { name: "Durga Devi", size: "12 inch", type: "Standing - 8 Hands", deity: "Durga" },
-            { name: "Murugan", size: "12 inch", type: "Standing - 4 Hands", deity: "Murugan" },
-            { name: "Krishna", size: "12 inch", type: "Standing - 4 Hands", deity: "Krishna" }
+        // Welcome Section Image Slider
+        const welcomeSlides = document.querySelectorAll('.welcome-slide');
+        const dotsContainer = document.getElementById('welcomeDots');
+        let currentWelcomeSlide = 0;
+
+        if (welcomeSlides.length > 0) {
+            // Create dots
+            for (let i = 0; i < welcomeSlides.length; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('welcome-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToWelcomeSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+
+            function goToWelcomeSlide(index) {
+                welcomeSlides[currentWelcomeSlide].classList.remove('active');
+                document.querySelectorAll('.welcome-dot')[currentWelcomeSlide].classList.remove('active');
+                currentWelcomeSlide = index;
+                welcomeSlides[currentWelcomeSlide].classList.add('active');
+                document.querySelectorAll('.welcome-dot')[currentWelcomeSlide].classList.add('active');
+            }
+
+            function nextWelcomeSlide() {
+                let next = (currentWelcomeSlide + 1) % welcomeSlides.length;
+                goToWelcomeSlide(next);
+            }
+
+            setInterval(nextWelcomeSlide, 3500);
+        }
+
+        // Divine Idols Gallery Data
+        const divineIdols = [
+            { name: "Raja Rajeshwari", size: "12 inch", img: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/501577536_695304829888940_8785913662339675350_n.webp?stp=dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_ohc=snJ6sSzQI9cQ7kNvwFuU9h6&_nc_oc=Adqiu6NThFvWZBtDFBPXWU8Eyn5q3vvn0yBaZt77M5AC-RyoBexxy-dRAmWxab47Eq8&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=gtgWzi8E4UJPv0kBXgBZ1Q&_nc_ss=7a3a8&oh=00_Af37cJ28H7EsRvgUQ3SNMQkFQNtH4mQ2Wp9U2awXCJTF-Q&oe=69DAFDE5" },
+            { name: "Brahma", size: "12 inch", img: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/484496806_639996875419736_5999060454705890052_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=90h2MjNL3hIQ7kNvwHDOOSm&_nc_oc=AdqHPclUvftyjqwoSP86bLHkmJQpHNpIw9sYI4pAcchwt7EDr3TdeRLcmwcNvNpr00g&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=5CW-Yhlp5_WCxepnuWgKxA&_nc_ss=7a3a8&oh=00_Af21Kf9DKM2RI7qODAzySrLjbVlsyHElb0e6OUfst-00gw&oe=69DAE6C8" },
+            { name: "Mahamariamman", size: "12 inch Standing", img: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/482001090_633523209400436_4534822419398343741_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=13d280&_nc_ohc=NvxYm4W-NKQQ7kNvwHw-C8W&_nc_oc=AdpP5Rsjz2QS6wNGsbqq6r5ZChZSAK4_xDgk9JPFS7ruWQnubr8Pq5sekl4pRSn0t2w&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=YNcrC7bHfPhKha-P9QaK5w&_nc_ss=7a3a8&oh=00_Af0OeKTdaQqrsytonowrDuslWZvQpgWW6kbS48ZrUY2pkw&oe=69DB0BFE" },
+            { name: "Ananthapadmanabha", size: "Multiple Sizes", img: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/486575397_644818718270885_1519999157974888451_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=13d280&_nc_ohc=4T8G_-XEjMsQ7kNvwHANP_S&_nc_oc=AdrdBDw-HIF-ei-jiVh0_r_IEJOrNTC5PEz18L9rfIz2zh9tFQRBJsEQvk1ZO24lKxI&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=0GwZ__potkBwa2NUIBTr7w&_nc_ss=7a3a8&oh=00_Af07FdYZQ2sC0cLgghncAEXpdRrzLKIW1ep4eKZF9n66Tg&oe=69DB0C20" },
+            { name: "Vishnu with Sridevi & Bhudevi", size: "18 inch", img: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/482259325_632626112823479_5547523939559308963_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=voYz8oHaz6kQ7kNvwESz4_l&_nc_oc=AdrkRuAqd75X6OPtY61vQ8TB3WcQFwRLDZtUtBQf26clDAMF0-yoRVZO2FOYN2Itx2k&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=Y395ruZ_k9lVrago6EU1Tw&_nc_ss=7a3a8&oh=00_Af1SnEBm7mJkSV8mBnQ_z6EI_U3AGgtdVhXDHgcVkG05uw&oe=69DAE767" },
+            { name: "Durga", size: "18 inch", img: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/482026935_632353672850723_237618400163770612_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=MUsHgPLEMC0Q7kNvwE-LOnW&_nc_oc=AdrCCvTSiYWhgVjsF3kLE_DWh5QZbD60jOpNNBzcQNPze4Z_mZBuBWdn4jte98--bvc&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=UG1hFSgl4U17K8yYds932g&_nc_ss=7a3a8&oh=00_Af1NiHlj4ju9j8vTYQIQN4LU6mmuHRPGHubRwxf5rgUdoQ&oe=69DAF61F" },
+            { name: "Maha Vishnu & Lakshmi", size: "18 inch", img: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/481077134_631892699563487_5089762672342477108_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=tjOUHI7t-QQQ7kNvwEwpG0F&_nc_oc=AdqfoAQT5BjUJN1vWIbkZrcTfkYhyCWOzU87nrdCEUKLmciciRrZtI3ZgaM9cDzbpQU&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=HpB03F4Vp3d9CppSuMU4Ew&_nc_ss=7a3a8&oh=00_Af3zi8QJzHOU5no4F7a99HjkifLquqPwRm-jqj4whlDUeQ&oe=69DAF234" },
+            { name: "Pratyangira Devi", size: "12 inch", img: "https://scontent-blr1-2.xx.fbcdn.net/v/t39.30808-6/482205274_631888726230551_5278940956874609393_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=TXmPzrEbcWoQ7kNvwGDoU3o&_nc_oc=AdoOaesxa2mAv3KuK_W2xG8XMz8P9jTalu4YpJYH2phaEhzGGzHllOyhSHZcnfzDt8g&_nc_zt=23&_nc_ht=scontent-blr1-2.xx&_nc_gid=fjF2-jppAdK5Sl0_3JAqsQ&_nc_ss=7a3a8&oh=00_Af3bh-KszgjzQYPfpStb1jHJTqIHRzyFpuiGylWHRzPY2w&oe=69DB0B60" },
+            { name: "Shiva Family on Nandi", size: "18 inch", img: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/481804065_629489893137101_777680107012183334_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_ohc=pufIhXnRL44Q7kNvwHMguMt&_nc_oc=AdptWrfk3RTuqdERZ9VnN3QWqDhuFDC39u-vQodjtImOXX4AiK-8cFhx07JRoaAaW0Q&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=kx91D8bbJQJZwhYDJCV2KA&_nc_ss=7a3a8&oh=00_Af1-cWwxxuycHNej6-3s44zxr9oCTQF5Xt5A7ndEOL3rFg&oe=69DB14D7" },
+            { name: "Mahamariamman", size: "21 inch", img: "https://scontent-blr1-1.xx.fbcdn.net/v/t39.30808-6/482191381_628088299943927_8778673419162659058_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=13d280&_nc_ohc=_uVUIittdncQ7kNvwGkYVej&_nc_oc=AdoF7MyfR4tgkcHWoWcELrYBCC5hCPL9uctxuI6KjMOhTIlsKzRF-6sR2hm8uyvwdFU&_nc_zt=23&_nc_ht=scontent-blr1-1.xx&_nc_gid=8fyS4w39m_NjBVx4eN-bLg&_nc_ss=7a3a8&oh=00_Af1yiumAJksRmw6kfZwEP2bAhY8i6wyagd-HSB4sBHHTXA&oe=69DAE453" }
         ];
 
-        // Render trending products with enquiry button only — no price tag
-        const grid = document.getElementById('trendingGrid');
-        if (grid) {
-            grid.innerHTML = trendingProducts.map(item => `
-                <div class="product-card" onclick="window.location.href='shop.html'">
-                    <img src="${getDeityImage(item.deity)}" alt="${item.name}" onerror="this.src='https://placehold.co/300x300?text=Divine+Idol'">
-                    <div class="product-info">
-                        <h3>${item.name}</h3>
-                        <p class="size">${item.size} | ${item.type}</p>
-                        <a href="https://wa.me/918971789029?text=Hi! I'm interested in ${item.name} (${item.size}) - ${item.type}" class="whatsapp-btn-small" target="_blank"><i class="fab fa-whatsapp"></i> Enquire Now</a>
+        // Populate scrolling gallery
+        const galleryContainer = document.getElementById('scrollingGallery');
+        if (galleryContainer) {
+            galleryContainer.innerHTML = divineIdols.map(idol => `
+                <div class="gallery-item">
+                    <img src="${idol.img}" alt="${idol.name}" onerror="this.src='https://placehold.co/300x300?text=${encodeURIComponent(idol.name)}'">
+                    <div class="gallery-item-info">
+                        <h4>${idol.name}</h4>
+                        <p>${idol.size}</p>
                     </div>
                 </div>
             `).join('');
@@ -783,7 +947,7 @@
             });
         }
 
-        // Handle window resize for responsive menu
+        // Handle window resize
         window.addEventListener('resize', () => {
             if (window.innerWidth > 768) {
                 const navLinks = document.querySelector('.nav-links');
@@ -798,29 +962,6 @@
                     if (navActions) navActions.style.display = 'none';
                 }
             }
-        });
-
-        // Language switcher visual active state (no functional translation, just UI)
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                // Optional: show a subtle toast that language demo is UI only
-                const msg = document.createElement('div');
-                msg.innerText = 'Language demo — site content remains in English for now.';
-                msg.style.position = 'fixed';
-                msg.style.bottom = '20px';
-                msg.style.left = '50%';
-                msg.style.transform = 'translateX(-50%)';
-                msg.style.backgroundColor = '#2E241F';
-                msg.style.color = '#EADBCE';
-                msg.style.padding = '8px 20px';
-                msg.style.borderRadius = '40px';
-                msg.style.fontSize = '0.8rem';
-                msg.style.zIndex = '9999';
-                document.body.appendChild(msg);
-                setTimeout(() => msg.remove(), 2000);
-            });
         });
     </script>
 </body>
