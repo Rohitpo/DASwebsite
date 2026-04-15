@@ -8,6 +8,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        .logo-img {
+            height: 60px;
+            width: auto;
+            margin-right: 15px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo h1 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        .logo p {
+            font-size: 0.8rem;
+            margin: 0;
+        }
         .about-hero {
             background: linear-gradient(135deg, #3E2A23, #B55A30);
             color: white;
@@ -34,10 +51,15 @@
             margin-bottom: 20px;
             line-height: 1.8;
         }
-        .about-image img {
+        /* video container styling - matches previous image styling exactly */
+        .about-image video {
             width: 100%;
             border-radius: 32px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: block;
+        }
+        .about-image {
+            width: 100%;
         }
         .values-grid {
             display: grid;
@@ -51,18 +73,38 @@
             background: white;
             border-radius: 32px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .value-card:hover {
+            transform: translateY(-5px);
         }
         .value-card i {
             font-size: 2.5rem;
-            color: var(--copper);
+            color: #B55A30;
             margin-bottom: 20px;
         }
         .value-card h3 {
             margin-bottom: 12px;
         }
+        .footer-grid a {
+            color: #B55A30;
+            text-decoration: none;
+        }
+        .footer-grid a:hover {
+            text-decoration: underline;
+        }
         @media (max-width: 768px) {
             .about-grid {
                 grid-template-columns: 1fr;
+            }
+            .logo-img {
+                height: 40px;
+            }
+            .logo h1 {
+                font-size: 0.9rem;
+            }
+            .logo p {
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -71,8 +113,7 @@
     <nav class="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <span class="logo-icon">🕉️</span>
-                <div><h1>Divine Arts & Sculptures</h1><p>Pancha Loha | Traditional Chola Bronze</p></div>
+                <img src="GALLARY/lobo.png" alt="Divine Arts & Sculptures Logo" class="logo-img">
             </div>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -112,7 +153,11 @@
                     <p><strong>In-house customized services include:</strong> bronze sculptors, bronze portraiture bust sculptors, marble statue production artisans, silicone mold makers, casting and foundry artisans — all under one roof!</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://sites.google.com/site/divineartsandsculptures/_/rsrc/1690782121895/home/lakshmi3.jpg" alt="Our Workshop">
+                    <!-- Video element replacing the original image, using the requested Google Drive video -->
+                    <video controls autoplay loop muted playsinline>
+                        <source src="https://drive.google.com/uc?export=download&id=1nM05YaDH5tXKdqY8oYokVTVHoInqa00r" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
 
@@ -144,10 +189,27 @@
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div><h3>Divine Arts & Sculptures</h3><p>Handcrafted Pancha Loha idols using traditional Chola wax casting process.</p></div>
-                <div><h4>Contact</h4><p><i class="fas fa-phone"></i> +91 89717 89029</p><p><i class="fas fa-envelope"></i> divineartsandsculptures@gmail.com</p></div>
+                <div>
+                    <h3>Divine Arts & Sculptures</h3>
+                    <p>Handcrafted Pancha Loha idols using traditional Chola wax casting process.</p>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +91 89717 89029</p>
+                    <p><i class="fas fa-envelope"></i> divineartsandsculptures@gmail.com</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: +91 89717 89029</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="shop.html">Shop</a></p>
+                    <p><a href="gallery.html">Gallery</a></p>
+                    <p><a href="contact.html">Contact</a></p>
+                </div>
             </div>
-            <div class="footer-bottom"><p>© 2024 Divine Arts & Sculptures. All rights reserved.</p></div>
+            <div class="footer-bottom">
+                <p>© 2024 Divine Arts & Sculptures. All rights reserved.</p>
+            </div>
         </div>
     </footer>
     <script src="script.js"></script>
