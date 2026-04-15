@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Divine Arts Gallery</title>
+    <title>Divine Arts Gallery - Sacred Bronze Idols Collection</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
     <style>
         * {
             margin: 0;
@@ -34,6 +33,7 @@
             padding: 0 24px;
         }
 
+        /* Top Bar / Navbar - Unified */
         .top-bar {
             background: white;
             border-bottom: 1px solid #F0E0D2;
@@ -44,30 +44,42 @@
             background: rgba(255, 252, 245, 0.96);
         }
 
-        .nav-flex {
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #F0E0D2;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            background: rgba(255, 252, 245, 0.96);
+            padding: 12px 0;
+        }
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            padding: 16px 0;
             gap: 20px;
         }
 
-        .logo-area {
+        .logo {
             display: flex;
             align-items: center;
-            gap: 15px;
         }
 
-        .logo-icon img {
-            height: 50px;
+        .logo img {
+            height: 60px;
             width: auto;
+            max-width: 200px;
+            object-fit: contain;
         }
 
         .nav-links {
             display: flex;
             gap: 28px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .nav-links a {
@@ -77,16 +89,48 @@
             transition: 0.2s;
             cursor: pointer;
             padding: 8px 0;
+            font-size: 1rem;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover, .nav-links a.active {
             color: var(--terracotta);
             border-bottom: 2px solid var(--gold-muted);
         }
 
-        .whatsapp-badge {
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 8px;
+            background: #f7ede4;
+            padding: 6px 12px;
+            border-radius: 40px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 4px 10px;
+            border-radius: 30px;
+            transition: 0.2s;
+            color: #5D3F2E;
+        }
+
+        .lang-btn.active {
+            background: var(--terracotta);
+            color: white;
+        }
+
+        .whatsapp-nav {
             background: #25D366;
-            padding: 8px 20px;
+            padding: 8px 18px;
             border-radius: 40px;
             color: white;
             text-decoration: none;
@@ -94,7 +138,22 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+
+        .whatsapp-nav:hover {
+            transform: scale(1.02);
+            background: #128C7E;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--deep-ochre);
+            cursor: pointer;
         }
 
         .hero-section {
@@ -105,15 +164,28 @@
             position: relative;
         }
 
-        .hero-lobo {
-            margin-bottom: 20px;
+        .hero-section::before {
+            content: 'ॐ';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.05;
+            font-family: serif;
+            bottom: 20px;
+            right: 30px;
+            pointer-events: none;
         }
 
-        .hero-lobo img {
-            max-width: 150px;
-            border-radius: 50%;
-            border: 4px solid var(--gold-muted);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .gallery-grid {
@@ -152,6 +224,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.02);
         }
 
         .card-info {
@@ -180,6 +257,7 @@
             padding: 30px;
             margin: 40px 0;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #F0E0D2;
         }
 
         .enquiry-section h3 {
@@ -194,6 +272,7 @@
             border-radius: 12px;
             margin: 15px 0;
             font-weight: 500;
+            border-left: 4px solid var(--terracotta);
         }
 
         .btn-enquiry {
@@ -208,6 +287,12 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            transition: 0.2s;
+        }
+
+        .btn-enquiry:hover {
+            background: var(--deep-ochre);
+            transform: translateY(-2px);
         }
 
         footer {
@@ -255,6 +340,11 @@
             font-weight: bold;
             cursor: pointer;
             padding: 10px 15px;
+            color: #666;
+        }
+
+        .close-modal:hover {
+            color: var(--terracotta);
         }
 
         @keyframes fadeUp {
@@ -264,7 +354,13 @@
 
         @media (max-width: 720px) {
             .nav-links { gap: 12px; font-size: 0.85rem; }
-            .nav-flex { flex-direction: column; text-align: center; }
+            .nav-container { flex-direction: column; text-align: center; }
+            .nav-actions { flex-wrap: wrap; justify-content: center; }
+            .mobile-menu-btn { display: block; }
+            .nav-links { display: none; width: 100%; flex-direction: column; gap: 10px; }
+            .nav-links.show { display: flex; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .gallery-grid { gap: 20px; }
         }
 
         .filter-bar {
@@ -294,6 +390,7 @@
             font-weight: 600;
             margin-bottom: 8px;
             display: block;
+            color: var(--deep-ochre);
         }
 
         .photo-input {
@@ -302,52 +399,90 @@
             border-radius: 40px;
             border: 1px solid #E2CBB8;
             margin-bottom: 15px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .stats-banner {
+            background: var(--sandstone);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .stats-flex {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--terracotta);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #5D3F2E;
         }
     </style>
 </head>
 <body>
-<div class="top-bar">
-    <div class="container nav-flex">
-        <div class="logo-area">
-            <div class="logo-icon">
-                <img src="GALLARY/lobo.png" alt="Logo" onerror="this.src='https://placehold.co/50x50/BC6A3B/white?text=OM'">
-            </div>
-        </div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="how-its-made.html">How it's made</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="shop.html">Shop</a>
-            <a href="about.html">About</a>
-            <a href="reviews.html">Reviews</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <a href="https://wa.me/918971789029" class="whatsapp-badge" target="_blank"><i class="fab fa-whatsapp"></i> Enquire Now</a>
-    </div>
-</div>
 
-<!-- HOME PAGE CONTENT (GALLERY + ENQUIRY) -->
-<div class="hero-section">
-    <div class="container">
-        <div class="hero-lobo">
-            <img src="GALLARY/lobo.png" alt="Lobo" onerror="this.src='https://placehold.co/150x150/BC6A3B/white?text=LOBO'">
+<!-- Unified Navigation (Fixed top section) -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">
+            <img src="GALLARY/lobo.png" alt="Divine Arts & Sculptures Logo" onerror="this.src='https://placehold.co/200x80?text=Divine+Arts'; this.style.objectFit='contain';">
         </div>
+        <div class="nav-links" id="navLinks">
+            <a data-page="index">Home</a>
+            <a data-page="how-its-made">How it's made</a>
+            <a data-page="gallery">Gallery</a>
+            <a data-page="shop" class="active">Shop</a>
+            <a data-page="about">About</a>
+            <a data-page="reviews">Reviews</a>
+            <a data-page="contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="en">ENGLISH</button>
+                <button class="lang-btn" data-lang="ta">தமிழ்</button>
+                <button class="lang-btn" data-lang="te">తెలుగు</button>
+                <button class="lang-btn" data-lang="hi">हिन्दी</button>
+            </div>
+            <a href="https://wa.me/918971789029" class="whatsapp-nav" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="container hero-content">
+        <h1>Sacred Bronze Gallery</h1>
+        <p>Explore our divine collection of handcrafted Panchaloha idols<br>Each piece carries centuries of devotion and artistry</p>
     </div>
 </div>
 
 <div class="container">
     <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterGallery('all')">All</button>
-        <button class="filter-btn" onclick="filterGallery('standing')">Standing</button>
-        <button class="filter-btn" onclick="filterGallery('sitting')">Sitting</button>
+        <button class="filter-btn active" onclick="filterGallery('all')">All Idols</button>
+        <button class="filter-btn" onclick="filterGallery('standing')">Standing Posture</button>
+        <button class="filter-btn" onclick="filterGallery('sitting')">Sitting Posture</button>
     </div>
 
     <div id="galleryContainer" class="gallery-grid"></div>
 
     <div class="enquiry-section">
-        <h3><i class="fas fa-paper-plane"></i> Send Query</h3>
+        <h3><i class="fas fa-paper-plane"></i> Send Your Query</h3>
         <div id="selectedIdolDisplay" class="selected-idol">
-            No idol selected yet. Click on any idol above to select it.
+            <i class="fas fa-info-circle"></i> No idol selected yet. Click on any idol above to select it.
         </div>
         <button class="btn-enquiry" onclick="sendEnquiry()">
             <i class="fab fa-whatsapp"></i> Send Query via WhatsApp
@@ -355,14 +490,49 @@
     </div>
 </div>
 
+<!-- Stats Banner -->
+<div class="stats-banner">
+    <div class="container stats-flex">
+        <div class="stat-item">
+            <div class="stat-number">4500+</div>
+            <div class="stat-label">Years of Heritage</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Divine Idols</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">1000+</div>
+            <div class="stat-label">Happy Devotees</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Temple Projects</div>
+        </div>
+    </div>
+</div>
+
 <footer>
     <div class="container">
         <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
-            <div><h3>Divine Arts & Sculptures</h3><p>Handcrafted panchaloha idols | Traditional wax casting since 1985</p></div>
-            <div><h4>Contact Master Craftsman</h4><p><i class="fas fa-phone-alt"></i> +91 89717 89029</p><p><i class="fab fa-whatsapp"></i> WhatsApp: +91 89717 89029</p></div>
+            <div>
+                <h3 style="font-family: 'Playfair Display';">Divine Arts & Sculptures</h3>
+                <p>Handcrafted panchaloha idols | Traditional wax casting since 1985</p>
+                <div style="margin-top: 15px; display: flex; gap: 15px;">
+                    <a href="https://www.facebook.com/people/Divine-Arts-and-sculptures/100082282862776/" target="_blank" style="color: #EBD9CB; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/divine_arts_and_sculptures/" target="_blank" style="color: #EBD9CB; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/shorts/BTPIaIKc-VU" target="_blank" style="color: #EBD9CB; font-size: 1.2rem;"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Contact Master Craftsman</h4>
+                <p><i class="fas fa-phone-alt"></i> +91 89717 89029</p>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +91 89717 89029</p>
+                <p><i class="fas fa-envelope"></i> divineartsandsculptures@gmail.com</p>
+            </div>
         </div>
         <hr style="margin: 30px 0 20px; border-color: #4F3829;">
-        <p style="text-align: center;">© 2026 Divine Arts & Sculptures — Divine Collection</p>
+        <p style="text-align: center;">© 2026 Divine Arts & Sculptures — Divine Collection | Crafted with Devotion 🙏</p>
     </div>
 </footer>
 
@@ -371,12 +541,12 @@
         <div style="text-align: right;"><span class="close-modal" id="closeModalBtn">&times;</span></div>
         <img id="modalProductImg" class="modal-img" src="" alt="Preview">
         <div class="modal-body">
-            <h2 id="modalTitle" style="font-family: 'Playfair Display';">Idol Name</h2>
+            <h2 id="modalTitle" style="font-family: 'Playfair Display'; color: var(--deep-ochre);">Idol Name</h2>
             <p id="modalSpecs" style="margin: 8px 0; color:#5D3F2E;"></p>
             <div style="background: #FCF5EA; padding: 12px; border-radius: 20px; margin: 16px 0;">
-                <label class="photo-upload-label"><i class="fas fa-image"></i> Upload Photo URL:</label>
+                <label class="photo-upload-label"><i class="fas fa-image"></i> Update Photo URL:</label>
                 <input type="text" id="photoUrlInput" class="photo-input" placeholder="Paste image URL here">
-                <button id="updatePhotoBtn" style="background: var(--terracotta); color: white; border: none; padding: 10px 20px; border-radius: 40px; cursor: pointer; width: 100%;">Update Photo</button>
+                <button id="updatePhotoBtn" style="background: var(--terracotta); color: white; border: none; padding: 10px 20px; border-radius: 40px; cursor: pointer; width: 100%; font-weight: 600;">Update Photo</button>
             </div>
             <button onclick="selectForEnquiryAndClose()" class="btn-enquiry" style="width: 100%; justify-content: center;">
                 <i class="fas fa-paper-plane"></i> Select this Idol for Query
@@ -437,7 +607,7 @@
         container.innerHTML = filtered.map((idol) => `
             <div class="product-card" data-idol-name="${idol.name}">
                 <div class="img-wrapper">
-                    <img class="product-img" src="${idol.image}" alt="${idol.name}" onerror="this.src='https://placehold.co/600x600/F1E2D4/9B4B2A?text=Upload+Photo'">
+                    <img class="product-img" src="${idol.image}" alt="${idol.name}" onerror="this.src='https://placehold.co/600x600/F1E2D4/9B4B2A?text=${encodeURIComponent(idol.name)}'">
                 </div>
                 <div class="card-info">
                     <div class="deity-name">${idol.name}</div>
@@ -458,48 +628,48 @@
         });
     }
 
-    function filterGallery(filter) {
+    window.filterGallery = function(filter) {
         currentFilter = filter;
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        if(event.target) event.target.classList.add('active');
+        if(window.event && window.event.target) window.event.target.classList.add('active');
         renderGallery('galleryContainer', filter);
-    }
+    };
 
     let currentModalIdol = null;
 
     function openPhotoModal(idol) {
         currentModalIdol = idol;
         document.getElementById('modalTitle').innerText = idol.name;
-        document.getElementById('modalSpecs').innerHTML = `<i class="fas fa-ruler"></i> ${idol.height}  |  ${idol.posture === 'standing' ? 'Standing' : 'Sitting'}`;
+        document.getElementById('modalSpecs').innerHTML = `<i class="fas fa-ruler"></i> ${idol.height}  |  ${idol.posture === 'standing' ? 'Standing Posture' : 'Sitting Posture'}`;
         document.getElementById('modalProductImg').src = idol.image;
         document.getElementById('photoUrlInput').value = idol.image;
         document.getElementById('photoModal').style.display = 'flex';
     }
 
-    function selectForEnquiryAndClose() {
+    window.selectForEnquiryAndClose = function() {
         if (currentModalIdol) {
             selectedIdol = currentModalIdol;
             document.getElementById('selectedIdolDisplay').innerHTML = `
-                <strong>Selected Idol:</strong> ${selectedIdol.name}<br>
-                <strong>Height:</strong> ${selectedIdol.height}<br>
-                <strong>Posture:</strong> ${selectedIdol.posture === 'standing' ? 'Standing' : 'Sitting'}
+                <i class="fas fa-check-circle" style="color: var(--terracotta);"></i> <strong>Selected Idol:</strong> ${selectedIdol.name}<br>
+                📏 <strong>Height:</strong> ${selectedIdol.height}<br>
+                🕉️ <strong>Posture:</strong> ${selectedIdol.posture === 'standing' ? 'Standing' : 'Sitting'}
             `;
             document.getElementById('photoModal').style.display = 'none';
             document.querySelector('.enquiry-section').scrollIntoView({ behavior: 'smooth' });
         }
-    }
+    };
 
-    function sendEnquiry() {
+    window.sendEnquiry = function() {
         if (!selectedIdol) {
-            alert('Please select an idol first by clicking on it and then "Select this Idol for Query"');
+            alert('🙏 Please select an idol first by clicking on it and then "Select this Idol for Query"');
             return;
         }
         
-        const message = `Namaste 🙏\n\nI am interested in the following idol:\n\n📿 Idol: ${selectedIdol.name}\n📏 Height: ${selectedIdol.height}\n🕉️ Posture: ${selectedIdol.posture === 'standing' ? 'Standing' : 'Sitting'}\n\nPlease share more details and availability.`;
+        const message = `Namaste 🙏\n\nI am interested in the following idol from Divine Arts & Sculptures:\n\n📿 Idol: ${selectedIdol.name}\n📏 Height: ${selectedIdol.height}\n🕉️ Posture: ${selectedIdol.posture === 'standing' ? 'Standing' : 'Sitting'}\n\nPlease share more details, pricing, and availability.`;
         
         const whatsappUrl = `https://wa.me/918971789029?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
-    }
+    };
 
     document.getElementById('updatePhotoBtn').addEventListener('click', () => {
         if(!currentModalIdol) return;
@@ -524,6 +694,15 @@
         if(e.target === document.getElementById('photoModal')) 
             document.getElementById('photoModal').style.display = 'none'; 
     };
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    if(mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    }
 
     renderGallery('galleryContainer', 'all');
 </script>
